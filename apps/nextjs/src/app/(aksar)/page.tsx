@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+//import { Suspense } from "react";
 import Balancer from "react-wrap-balancer";
 
 import { cn } from "@aksar/ui";
@@ -12,9 +12,9 @@ import {
 } from "@aksar/ui/card";
 import { Icons } from "@aksar/ui/icons";
 
-import { MainNav } from "~/components/main-nav";
-import { MobileDropdown } from "~/components/mobile-nav";
-import { UserNav } from "~/components/user-nav";
+//import { MainNav } from "~/components/main-nav";
+//import { MobileDropdown } from "~/components/mobile-nav";
+//import { UserNav } from "~/components/user-nav";
 import { marketingFeatures, siteConfig } from "~/app/config";
 
 export const runtime = "edge";
@@ -22,7 +22,7 @@ export const runtime = "edge";
 export default function Home() {
   return (
     <>
-      <nav className="fixed left-0 right-0 z-50 border-b bg-background">
+      {/*<nav className="fixed left-0 right-0 z-50 border-b bg-background">
         <div className="mx-auto flex h-16 max-w-4xl items-center px-4">
           <div className="mr-8 hidden items-center md:flex">
             <Icons.logo className="mr-2 h-6 w-6" />
@@ -32,12 +32,11 @@ export default function Home() {
           <MainNav />
           <div className="ml-auto flex items-center space-x-4">
             <Suspense>
-              {/* @ts-expect-error - ... */}
               <UserNav />
             </Suspense>
           </div>
         </div>
-      </nav>
+      </nav>*/}
       <main className="container flex min-h-screen w-full flex-col items-center justify-center pt-48">
         <div className="z-10 min-h-[50vh] w-full max-w-4xl px-5 xl:px-0">
           <h1

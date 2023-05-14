@@ -4,6 +4,7 @@ import { Component, Globe } from "lucide-react";
 import { Icons } from "@aksar/ui/icons";
 
 export const siteConfig = {
+  name: "Aksar La'ode",
   github: "https://github.com/aksarlaode/aksar-corp",
   twitter: "https://twitter.com/ode_aksar",
 };
