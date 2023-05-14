@@ -4,9 +4,9 @@ import * as React from "react";
 import { useSignIn } from "@clerk/nextjs";
 import { type OAuthStrategy } from "@clerk/types";
 
-import { Button } from "@acme/ui/button";
-import { Icons } from "@acme/ui/icons";
-import { useToast } from "@acme/ui/use-toast";
+import { Button } from "@aksar/ui/button";
+import { Icons } from "@aksar/ui/icons";
+import { useToast } from "@aksar/ui/use-toast";
 
 export function OAuthSignIn() {
   const [isLoading, setIsLoading] = React.useState<OAuthStrategy | null>(null);

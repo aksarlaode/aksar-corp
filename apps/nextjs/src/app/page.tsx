@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import Balancer from "react-wrap-balancer";
 
-import { cn } from "@acme/ui";
-import { buttonVariants } from "@acme/ui/button";
+import { cn } from "@aksar/ui";
+import { buttonVariants } from "@aksar/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@acme/ui/card";
-import { Icons } from "@acme/ui/icons";
+} from "@aksar/ui/card";
+import { Icons } from "@aksar/ui/icons";
 
 import { MobileDropdown } from "~/components/mobile-nav";
 import { UserNav } from "~/components/user-nav";
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="mx-auto flex h-16 max-w-4xl items-center px-4">
           <div className="mr-8 hidden items-center md:flex">
             <Icons.logo className="mr-2 h-6 w-6" />
-            <span className="text-lg font-bold tracking-tight">Acme Corp</span>
+            <span className="text-lg font-bold tracking-tight">Aksar Corp</span>
           </div>
           <MobileDropdown />
           <MainNav />
@@ -53,7 +53,7 @@ export default function Home() {
             style={{ animationDelay: "0.30s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Acme Corp is a Next.js starter kit that includes everything you
+              Aksar Corp is a Next.js starter kit that includes everything you
               need to build a modern web application. Mobile application
               preconfigured, ready to go.
             </Balancer>

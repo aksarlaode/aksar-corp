@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { Icons } from "@acme/ui/icons";
+import { Icons } from "@aksar/ui/icons";
 
 import { siteConfig } from "~/app/config";
 
@@ -16,7 +16,7 @@ export function SiteFooter() {
         <div className="flex w-full justify-between">
           <Link href="/" className="flex items-center text-lg font-medium">
             <Icons.logo className="mr-2 h-6 w-6" />
-            Acme Corp
+            Aksar Corp
           </Link>
           <ThemeToggle />
         </div>

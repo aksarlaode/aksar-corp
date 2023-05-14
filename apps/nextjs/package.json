@@ -1,5 +1,5 @@
 {
-  "name": "@acme/nextjs",
+  "name": "@aksar/nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,10 +13,10 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@acme/api": "^0.1.0",
-    "@acme/db": "^0.1.0",
-    "@acme/tailwind-config": "^0.1.0",
-    "@acme/ui": "^0.1.0",
+    "@aksar/api": "^0.1.0",
+    "@aksar/db": "^0.1.0",
+    "@aksar/tailwind-config": "^0.1.0",
+    "@aksar/ui": "^0.1.0",
     "@clerk/nextjs": "^4.16.4",
     "@next/mdx": "13.4.2-canary.5",
     "@t3-oss/env-nextjs": "^0.2.2",
@@ -39,7 +39,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.1.0",
+    "@aksar/eslint-config": "^0.1.0",
     "@types/mdx": "^2.0.5",
     "@types/node": "^18.16.6",
     "@types/react": "^18.2.6",

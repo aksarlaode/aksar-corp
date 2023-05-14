@@ -1,12 +1,12 @@
-import "@acme/ui/styles.css";
+import "@aksar/ui/styles.css";
 import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import { Analytics } from "@vercel/analytics/react";
 
-import { cn } from "@acme/ui";
-import { Toaster } from "@acme/ui/toaster";
+import { cn } from "@aksar/ui";
+import { Toaster } from "@aksar/ui/toaster";
 
 import { SiteFooter } from "~/components/footer";
 import { TailwindIndicator } from "~/components/tailwind-indicator";

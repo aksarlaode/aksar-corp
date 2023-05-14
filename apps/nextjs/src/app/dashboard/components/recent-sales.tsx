@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@acme/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@aksar/ui/avatar";
 
 export function RecentSales() {
   return (

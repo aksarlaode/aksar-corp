@@ -4,7 +4,7 @@ importers:
 
   .:
     dependencies:
-      '@acme/eslint-config':
+      '@aksar/eslint-config':
         specifier: ^0.1.0
         version: link:packages/config/eslint
       '@ianvs/prettier-plugin-sort-imports':
@@ -92,13 +92,13 @@ importers:
         specifier: 1.9.1
         version: 1.9.1
     devDependencies:
-      '@acme/api':
+      '@aksar/api':
         specifier: '*'
         version: link:../../packages/api
-      '@acme/eslint-config':
+      '@aksar/eslint-config':
         specifier: '*'
         version: link:../../packages/config/eslint
-      '@acme/tailwind-config':
+      '@aksar/tailwind-config':
         specifier: '*'
         version: link:../../packages/config/tailwind
       '@babel/core':
@@ -140,16 +140,16 @@ importers:
 
   apps/nextjs:
     dependencies:
-      '@acme/api':
+      '@aksar/api':
         specifier: ^0.1.0
         version: link:../../packages/api
-      '@acme/db':
+      '@aksar/db':
         specifier: ^0.1.0
         version: link:../../packages/db
-      '@acme/tailwind-config':
+      '@aksar/tailwind-config':
         specifier: ^0.1.0
         version: link:../../packages/config/tailwind
-      '@acme/ui':
+      '@aksar/ui':
         specifier: ^0.1.0
         version: link:../../packages/ui
       '@clerk/nextjs':
@@ -213,7 +213,7 @@ importers:
         specifier: ^3.21.4
         version: 3.21.4
     devDependencies:
-      '@acme/eslint-config':
+      '@aksar/eslint-config':
         specifier: ^0.1.0
         version: link:../../packages/config/eslint
       '@types/mdx':
@@ -249,7 +249,7 @@ importers:
 
   packages/api:
     dependencies:
-      '@acme/db':
+      '@aksar/db':
         specifier: ^0.1.0
         version: link:../db
       '@clerk/nextjs':
@@ -268,7 +268,7 @@ importers:
         specifier: ^3.21.4
         version: 3.21.4
     devDependencies:
-      '@acme/eslint-config':
+      '@aksar/eslint-config':
         specifier: ^0.1.0
         version: link:../config/eslint
       eslint:
@@ -397,10 +397,10 @@ importers:
         specifier: ^1.12.0
         version: 1.12.0
     devDependencies:
-      '@acme/eslint-config':
+      '@aksar/eslint-config':
         specifier: 0.1.0
         version: link:../config/eslint
-      '@acme/tailwind-config':
+      '@aksar/tailwind-config':
         specifier: 0.1.0
         version: link:../config/tailwind
       '@types/react':

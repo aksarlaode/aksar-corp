@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { Icons } from "@acme/ui/icons";
+import { Icons } from "@aksar/ui/icons";
 
 import { MobileDropdown } from "~/components/mobile-nav";
 import { UserNav } from "~/components/user-nav";
@@ -13,7 +13,7 @@ export default function InfoLayout(props: { children: React.ReactNode }) {
         <div className="mx-auto flex h-16 max-w-4xl items-center px-4">
           <div className="mr-8 hidden items-center md:flex">
             <Icons.logo className="mr-2 h-6 w-6" />
-            <span className="text-lg font-bold tracking-tight">Acme Corp</span>
+            <span className="text-lg font-bold tracking-tight">Aksar Corp</span>
           </div>
           <MobileDropdown />
           <MainNav />

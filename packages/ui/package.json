@@ -1,5 +1,5 @@
 {
-  "name": "@acme/ui",
+  "name": "@aksar/ui",
   "version": "0.1.0",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -34,8 +34,8 @@
     "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
-    "@acme/eslint-config": "0.1.0",
-    "@acme/tailwind-config": "0.1.0",
+    "@aksar/eslint-config": "0.1.0",
+    "@aksar/tailwind-config": "0.1.0",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "date-fns": "^2.29.3",

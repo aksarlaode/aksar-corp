@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 
-import { Dialog, DialogContent } from "@acme/ui/dialog";
+import { Dialog, DialogContent } from "@aksar/ui/dialog";
 
 export function InterceptingModal(props: {
   children: React.ReactNode;

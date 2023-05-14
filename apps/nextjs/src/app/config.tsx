@@ -1,10 +1,10 @@
 import { type Route } from "next";
 import { Component, Globe } from "lucide-react";
 
-import { Icons } from "@acme/ui/icons";
+import { Icons } from "@aksar/ui/icons";
 
 export const siteConfig = {
-  github: "https://github.com/juliusmarminge/acme-corp",
+  github: "https://github.com/juliusmarminge/Aksar-corp",
   twitter: "https://twitter.com/jullerino",
 };
 

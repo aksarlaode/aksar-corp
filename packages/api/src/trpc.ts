@@ -18,7 +18,7 @@ import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { db } from "@acme/db";
+import { db } from "@aksar/db";
 
 /**
  * 1. CONTEXT

@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import Link from "next/link";
 
-import { Icons } from "@acme/ui/icons";
+import { Icons } from "@aksar/ui/icons";
 
 export default function AuthNew(props: { children: ReactNode }) {
   return (
@@ -20,7 +20,7 @@ export default function AuthNew(props: { children: ReactNode }) {
           className="absolute z-20 flex items-center p-4 text-lg font-bold tracking-tight"
         >
           <Icons.logo className="mr-2 h-6 w-6" />
-          <span>Acme Corp</span>
+          <span>Aksar Corp</span>
         </Link>
       </div>
 

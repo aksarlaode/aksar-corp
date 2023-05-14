@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api",
+  "name": "@aksar/api",
   "version": "0.1.0",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/db": "^0.1.0",
+    "@aksar/db": "^0.1.0",
     "@clerk/nextjs": "^4.16.4",
     "@trpc/client": "^10.25.1",
     "@trpc/server": "^10.25.1",
@@ -19,7 +19,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@acme/eslint-config": "^0.1.0",
+    "@aksar/eslint-config": "^0.1.0",
     "eslint": "^8.39.0",
     "typescript": "^5.1.0-beta"
   }

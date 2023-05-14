@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useClerk } from "@clerk/nextjs";
 
-import { Button } from "@acme/ui/button";
+import { Button } from "@aksar/ui/button";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";

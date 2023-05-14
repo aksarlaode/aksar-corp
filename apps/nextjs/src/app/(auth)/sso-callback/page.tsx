@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useClerk } from "@clerk/nextjs/app-beta/client";
 import type { HandleOAuthCallbackParams } from "@clerk/types";
 
-import { Icons } from "@acme/ui/icons";
+import { Icons } from "@aksar/ui/icons";
 
 export const runtime = "edge";
 
