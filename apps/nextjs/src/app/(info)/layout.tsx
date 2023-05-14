@@ -4,7 +4,7 @@ import { Icons } from "@aksar/ui/icons";
 
 import { MobileDropdown } from "~/components/mobile-nav";
 import { UserNav } from "~/components/user-nav";
-import { MainNav } from "../dashboard/components/main-nav";
+import { MainNav } from "~/components/main-nav";
 
 export default function InfoLayout(props: { children: React.ReactNode }) {
   return (

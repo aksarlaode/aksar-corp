@@ -19,11 +19,11 @@ import { Icons } from "@aksar/ui/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 
 import { MainNav } from "~/components/main-nav";
+import { Search } from "~/components/search";
 import { UserNav } from "~/components/user-nav";
 import { CalendarDateRangePicker } from "./components/date-range-picker";
 import { Overview } from "./components/overview";
 import { RecentSales } from "./components/recent-sales";
-import { Search } from "./components/search";
 import { TeamSwitcher } from "./components/team-switcher";
 
 // export const runtime = "edge";

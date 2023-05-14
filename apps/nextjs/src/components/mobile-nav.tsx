@@ -9,7 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@aksar/ui/popover";
 import { ScrollArea } from "@aksar/ui/scroll-area";
 
 import { navItems } from "~/app/config";
-import { Search } from "~/app/dashboard/components/search";
+import { Search } from "./search";
 import ThemeToggle from "./theme-toggle";
 
 export function MobileDropdown() {
