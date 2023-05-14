@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export default function ProfilePage() {
   return (
-    <div className="w- mx-auto flex w-full max-w-xl flex-col justify-center overflow-hidden">
+    <div className="mx-auto flex w-full max-w-xl flex-col justify-center overflow-hidden">
       <UserProfile
         appearance={{
           elements: {

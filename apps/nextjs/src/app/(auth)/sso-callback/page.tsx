@@ -19,7 +19,7 @@ export default function SSOCallback(props: {
   }, [props, handleRedirectCallback]);
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-full">
       <Icons.spinner className="mr-2 h-16 w-16 animate-spin" />
     </div>
   );

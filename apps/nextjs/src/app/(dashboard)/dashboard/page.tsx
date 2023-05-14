@@ -19,12 +19,12 @@ import { Icons } from "@aksar/ui/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 
 import { UserNav } from "~/components/user-nav";
-import { CalendarDateRangePicker } from "~/app/dashboard/components/date-range-picker";
-import { MainNav } from "~/app/dashboard/components/main-nav";
-import { Overview } from "~/app/dashboard/components/overview";
-import { RecentSales } from "~/app/dashboard/components/recent-sales";
-import { Search } from "~/app/dashboard/components/search";
-import { TeamSwitcher } from "~/app/dashboard/components/team-switcher";
+import { CalendarDateRangePicker } from "./components/date-range-picker";
+import { MainNav } from "./components/main-nav";
+import { Overview } from "./components/overview";
+import { RecentSales } from "./components/recent-sales";
+import { Search } from "./components/search";
+import { TeamSwitcher } from "./components/team-switcher";
 
 // export const runtime = "edge";
 export const dynamic = "force-dynamic";
