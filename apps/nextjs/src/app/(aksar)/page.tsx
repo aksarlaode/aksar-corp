@@ -12,10 +12,10 @@ import {
 } from "@aksar/ui/card";
 import { Icons } from "@aksar/ui/icons";
 
+import { MainNav } from "~/components/main-nav";
 import { MobileDropdown } from "~/components/mobile-nav";
 import { UserNav } from "~/components/user-nav";
 import { marketingFeatures, siteConfig } from "~/app/config";
-import { MainNav } from "~/app/dashboard/components/main-nav";
 
 export const runtime = "edge";
 
