@@ -131,6 +131,10 @@
     "./table": {
       "import": "./dist/table.mjs",
       "types": "./dist/table.d.ts"
+    },
+    "./skeleton": {
+      "import": "./dist/skeleton.mjs",
+      "types": "./dist/skeleton.d.ts"
     }
   },
   "typesVersions": {
@@ -191,6 +195,9 @@
       ],
       "table": [
         "dist/table.d.ts"
+      ],
+      "skeleton": [
+        "dist/skeleton.d.ts"
       ]
     }
   }
