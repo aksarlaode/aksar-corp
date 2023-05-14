@@ -1,5 +1,3 @@
-import "@aksar/ui/styles.css";
-import "../styles/globals.css";
 import { SiteFooter } from "~/components/footer";
 
 export default function RootLayout(props: {
