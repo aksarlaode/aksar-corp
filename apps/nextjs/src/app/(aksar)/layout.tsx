@@ -1,8 +1,4 @@
 import { Suspense } from "react";
-import Link from "next/link";
-
-import { cn } from "@aksar/ui";
-import { buttonVariants } from "@aksar/ui/button";
 
 import { SiteFooter } from "~/components/footer";
 import { MainNav } from "~/components/main-nav";
@@ -14,15 +10,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  /*return (
-    <div className="relative flex min-h-screen flex-col">
-      <div className="flex-1">
-        {props.children}
-        {props.modal}
-      </div>
-      <SiteFooter />
-    </div>
-  );*/
   return (
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">

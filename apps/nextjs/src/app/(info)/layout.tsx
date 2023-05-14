@@ -1,31 +1,30 @@
 import { Suspense } from "react";
 
-import { Icons } from "@aksar/ui/icons";
-
-import { MobileDropdown } from "~/components/mobile-nav";
-import { UserNav } from "~/components/user-nav";
+import { SiteFooter } from "~/components/footer";
 import { MainNav } from "~/components/main-nav";
+import { UserNav } from "~/components/user-nav";
+import { navItems } from "../config";
 
-export default function InfoLayout(props: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <>
-      <nav className="fixed left-0 right-0 z-50 border-b bg-background">
-        <div className="mx-auto flex h-16 max-w-4xl items-center px-4">
-          <div className="mr-8 hidden items-center md:flex">
-            <Icons.logo className="mr-2 h-6 w-6" />
-            <span className="text-lg font-bold tracking-tight">Aksar Corp</span>
-          </div>
-          <MobileDropdown />
-          <MainNav />
-          <div className="ml-auto flex items-center space-x-4">
+    <div className="flex min-h-screen flex-col">
+      <header className="container z-40 bg-background">
+        <div className="flex h-20 items-center justify-between py-6">
+          <MainNav items={navItems} />
+          <nav>
             <Suspense>
               {/* @ts-expect-error - ... */}
               <UserNav />
             </Suspense>
-          </div>
+          </nav>
         </div>
-      </nav>
-      <main className="container max-w-4xl pt-16">{props.children}</main>
-    </>
+      </header>
+      <main className="flex-1">{children}</main>
+      <SiteFooter />
+    </div>
   );
 }
