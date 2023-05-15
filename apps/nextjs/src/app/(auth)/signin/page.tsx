@@ -1,4 +1,4 @@
-import { type Route } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 
 import { cn } from "@aksar/ui";
@@ -11,6 +11,11 @@ import { OAuthSignIn } from "./oauth-signin";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Authentication",
+  description: "Authentication forms built using the components.",
+};
 
 export default function AuthenticationPage() {
   return (
@@ -60,12 +65,13 @@ export default function AuthenticationPage() {
         </p>
       </div>*/}
 
-      <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="container relative grid min-h-screen grid-cols-1 overflow-hidden md:grid-cols-3 lg:grid-cols-2">
+      {/*</div><div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">*/}
         <Link
           href="/"
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "absolute left-4 top-4 md:left-8 md:top-8",
+            "absolute left-4 top-4 md:left-8 md:top-8 md:text-white",
           )}
         >
           <>
