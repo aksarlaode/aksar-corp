@@ -70,7 +70,7 @@ export default function AuthenticationPage() {
           href="/"
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "absolute left-4 top-4 md:left-8 md:top-8 md:text-white",
+            "absolute left-4 top-4 md:hidden",
           )}
         >
           <>
@@ -86,9 +86,9 @@ export default function AuthenticationPage() {
                 "url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)",
             }}
           />
-          <div className="relative z-20 flex items-center text-lg font-medium">
+          <Link href="/" className="relative z-20 flex items-center text-lg font-medium">
             <Command className="mr-2 h-6 w-6" /> Acme Inc
-          </div>
+          </Link>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
@@ -100,7 +100,7 @@ export default function AuthenticationPage() {
             </blockquote>
           </div>
         </div>
-        <div className="lg:p-8">
+        <div className="h-full lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
               <Icons.logo className="mx-auto h-6 w-6" />
