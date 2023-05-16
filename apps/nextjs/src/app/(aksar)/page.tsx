@@ -1,6 +1,6 @@
 import Balancer from "react-wrap-balancer";
 
-import { Editor, cn } from "@aksar/ui";
+import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
 import {
   Card,
@@ -11,6 +11,7 @@ import {
 } from "@aksar/ui/card";
 import { Icons } from "@aksar/ui/icons";
 
+import RichTextEditor from "~/components/editor";
 import { marketingFeatures, siteConfig } from "~/app/config";
 
 export const runtime = "edge";
@@ -26,7 +27,7 @@ export default function Home() {
         >
           <Balancer>Your all-in-one, enterprise ready starting point</Balancer>
         </h1>
-        <Editor initialValue="<h1>Hello World" onChange={onChange} />
+        <RichTextEditor initialValue="<h1>Hello World" onChange={onChange} />
         <p
           className="mt-6 animate-fade-up text-center text-muted-foreground/80 opacity-0 md:text-xl"
           style={{ animationDelay: "0.30s", animationFillMode: "forwards" }}
