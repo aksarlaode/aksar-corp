@@ -1,46 +1,8 @@
-/*import Link from "next/link";
-
-import { cn } from "@aksar/ui";
-
-import { navItems } from "~/app/config";
-
-// TODO: idx not needed as key when all items have unique hrefs
-// also, the active link should be filtered by href and not idx
-export function MainNav({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLElement>) {
-  return (
-    <nav
-      className={cn(
-        "hidden items-center space-x-4 md:flex lg:space-x-6",
-        className,
-      )}
-      {...props}
-    >
-      {navItems.map((item, idx) => (
-        <Link
-          href={item.href}
-          key={`${item.href}-${idx}`}
-          className={cn(
-            "text-sm font-medium transition-colors hover:text-primary",
-            idx !== 0 && "text-muted-foreground",
-          )}
-        >
-          {item.title}
-        </Link>
-      ))}
-    </nav>
-  );
-}*/
-
 "use client";
 
 import * as React from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-
-//import { MainNavItem } from "types";
 
 import { cn } from "@aksar/ui";
 import { Icons } from "@aksar/ui/icons";
@@ -57,14 +19,15 @@ export type NavItem = {
 interface MainNavProps {
   items?: NavItem[];
   children?: React.ReactNode;
+  className?: string;
 }
 
-export function MainNav({ items, children }: MainNavProps) {
+export function MainNav({ items, children, className }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className={cn("flex gap-6 md:gap-10", className)}>
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
         <span className="hidden font-bold sm:inline-block">
@@ -76,6 +39,8 @@ export function MainNav({ items, children }: MainNavProps) {
           {items?.map((item, index) => (
             <Link
               key={index}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               href={item.disabled ? "#" : item.href}
               className={cn(
                 "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
