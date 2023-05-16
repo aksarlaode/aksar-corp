@@ -3,26 +3,27 @@
 import React from "react";
 import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { CommandList } from "cmdk";
 import { Heading1 } from "lucide-react";
 
-import { Command, CommandItem } from "./command";
+import { Button } from "./button";
+import { Card, CardContent } from "./card";
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
     return null;
   }
   return (
-    <Command>
-      <CommandList>
-        <CommandItem
+    <Card>
+      <CardContent>
+        <Button
+          variant="ghost"
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
         >
-          <Heading1 className="h-4 w-4" />
+          <Heading1 className="mr-2 h-4 w-4" />
           <span>Heading 1</span>
-        </CommandItem>
-      </CommandList>
-    </Command>
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 
