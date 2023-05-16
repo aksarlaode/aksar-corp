@@ -10,12 +10,8 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import { Heading1 } from "lucide-react";
 
-import {
-  Command,
-  CommandGroup,
-  CommandItem,
-  CommandList,
-} from "@aksar/ui/command";
+import { Button } from "@aksar/ui/button";
+import { Card, CardContent } from "@aksar/ui/card";
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -24,18 +20,17 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <FloatingMenu editor={editor}>
-      <Command>
-        <CommandGroup>
-          <CommandList>
-            <CommandItem
-              onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
-            >
-              <Heading1 className="mr-2 h-4 w-4" />
-              <span>Heading 1</span>
-            </CommandItem>
-          </CommandList>
-        </CommandGroup>
-      </Command>
+      <Card>
+        <CardContent>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
+          >
+            <Heading1 className="mr-2 h-4 w-4" />
+            <span>Heading 1</span>
+          </Button>
+        </CardContent>
+      </Card>
     </FloatingMenu>
   );
 };
