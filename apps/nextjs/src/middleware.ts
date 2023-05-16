@@ -7,6 +7,7 @@ const publicPaths = [
   "/sso-callback*",
   "/terms*",
   "/privacy*",
+  "/editor*"
 ] as const;
 
 const isPublic = (path: string) => {
