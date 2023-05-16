@@ -28,7 +28,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             variant="ghost"
             onClick={() => editor.chain().focus().toggleBold().run()}
           >
-            <Bold className="mr-2 h-4 w-4" />
+            <Bold className="h-4 w-4" />
           </Button>
         </MenubarMenu>
         <MenubarMenu>
@@ -36,7 +36,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             variant="ghost"
             onClick={() => editor.chain().focus().toggleItalic().run()}
           >
-            <Italic className="mr-2 h-4 w-4" />
+            <Italic className="h-4 w-4" />
           </Button>
         </MenubarMenu>
         <MenubarMenu>
@@ -44,7 +44,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             variant="ghost"
             onClick={() => editor.chain().focus().toggleStrike().run()}
           >
-            <Strikethrough className="mr-2 h-4 w-4" />
+            <Strikethrough className="h-4 w-4" />
           </Button>
         </MenubarMenu>
       </Menubar>
@@ -60,7 +60,6 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardHeader />
         <CardContent>
           <Button
             variant="ghost"
