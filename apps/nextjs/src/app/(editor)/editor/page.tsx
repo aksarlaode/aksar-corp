@@ -12,8 +12,8 @@ import StarterKit from "@tiptap/starter-kit";
 import { Bold, Heading1, Italic, Strikethrough } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
-import { Card, CardContent, CardHeader } from "@aksar/ui/card";
-import { Menubar, MenubarMenu } from "@aksar/ui/menubar";
+import { Card, CardContent } from "@aksar/ui/card";
+import { Menubar, MenubarMenu, MenubarTrigger } from "@aksar/ui/menubar";
 
 const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -24,6 +24,11 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Menubar>
         <MenubarMenu>
+          <MenubarTrigger
+            onClick={() => editor.chain().focus().toggleBold().run()}
+          >
+            <Bold className="h-4 w-4" />
+          </MenubarTrigger>
           <Button
             variant="ghost"
             onClick={() => editor.chain().focus().toggleBold().run()}
