@@ -11,13 +11,11 @@ import {
 } from "@aksar/ui/card";
 import { Icons } from "@aksar/ui/icons";
 
-import RichTextEditor from "~/components/editor";
 import { marketingFeatures, siteConfig } from "~/app/config";
 
 export const runtime = "edge";
 
 export default function Home() {
-  const onChange = () => console.log("test");
   return (
     <main className="container flex min-h-screen w-full flex-col items-center justify-center pt-48">
       <div className="z-10 min-h-[50vh] w-full max-w-4xl px-5 xl:px-0">
@@ -27,7 +25,6 @@ export default function Home() {
         >
           <Balancer>Your all-in-one, enterprise ready starting point</Balancer>
         </h1>
-        <RichTextEditor initialValue="<h1>Hello World" onChange={onChange} />
         <p
           className="mt-6 animate-fade-up text-center text-muted-foreground/80 opacity-0 md:text-xl"
           style={{ animationDelay: "0.30s", animationFillMode: "forwards" }}
