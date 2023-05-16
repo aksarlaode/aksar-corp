@@ -5,8 +5,8 @@ import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Heading1 } from "lucide-react";
 
-import { Button } from "@aksar/ui/src/button";
-import { Card, CardContent } from "@aksar/ui/src/card";
+import { Button } from "@aksar/ui/button";
+import { Card, CardContent } from "@aksar/ui/card";
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
