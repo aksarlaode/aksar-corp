@@ -10,11 +10,7 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import { Heading1 } from "lucide-react";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@aksar/ui/dropdown-menu";
+import { Command, CommandItem, CommandList } from "@aksar/ui/command";
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -23,16 +19,16 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <FloatingMenu editor={editor}>
-      <DropdownMenu>
-        <DropdownMenuContent>
-          <DropdownMenuItem
+      <Command>
+        <CommandList>
+          <CommandItem
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
           >
             <Heading1 className="mr-2 h-4 w-4" />
             <span>Heading 1</span>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+          </CommandItem>
+        </CommandList>
+      </Command>
     </FloatingMenu>
   );
 };
