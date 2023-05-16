@@ -10,8 +10,11 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import { Heading1 } from "lucide-react";
 
-import { Button } from "@aksar/ui/button";
-import { Card, CardContent } from "@aksar/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@aksar/ui/dropdown-menu";
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -20,31 +23,30 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <FloatingMenu editor={editor}>
-      <Card>
-        <CardContent>
-          <Button
-            variant="ghost"
+      <DropdownMenu>
+        <DropdownMenuContent>
+          <DropdownMenuItem
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
           >
             <Heading1 className="mr-2 h-4 w-4" />
             <span>Heading 1</span>
-          </Button>
-        </CardContent>
-      </Card>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </FloatingMenu>
   );
 };
 
-const EditorPage = ({
-  content,
-}: //onChange,
-{
-  content: string;
-  //onChange(body: string): void;
-}) => {
+const EditorPage = () => {
   const editor = useEditor({
     extensions: [StarterKit],
-    content,
+    content: `<p>Hello World</p>`,
+    editorProps: {
+      attributes: {
+        class:
+          "prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none",
+      },
+    },
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       /*onChange(html);*/
