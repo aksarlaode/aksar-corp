@@ -1,14 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
+import {
+  EditorContent,
+  FloatingMenu,
+  useEditor,
+  type Editor,
+} from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import { Heading1 } from "lucide-react";
 
-import RichTextEditor from "~/components/editor";
+import { Button } from "@aksar/ui/button";
+import { Card, CardContent } from "@aksar/ui/card";
 
-export function EditorLayout() {
-  const [doc, _] = useState("");
-  /*function onChange() {
-    setDoc(doc);
-  }*/
+const MenuBar = ({ editor }: { editor: Editor }) => {
+  if (!editor) {
+    return null;
+  }
 
-  return <RichTextEditor content={doc} /*onChange={onChange}*/ />;
-}
+  return (
+    <FloatingMenu editor={editor}>
+      <Card>
+        <CardContent>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
+          >
+            <Heading1 className="mr-2 h-4 w-4" />
+            <span>Heading 1</span>
+          </Button>
+        </CardContent>
+      </Card>
+    </FloatingMenu>
+  );
+};
+
+const EditorPage = ({
+  content,
+}: //onChange,
+{
+  content: string;
+  //onChange(body: string): void;
+}) => {
+  const editor = useEditor({
+    extensions: [StarterKit],
+    content,
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      /*onChange(html);*/
+      console.log("html:", html);
+    },
+  });
+
+  return (
+    <div>
+      {editor && <MenuBar editor={editor} />}
+      <EditorContent editor={editor} />
+    </div>
+  );
+};
+
+export default EditorPage;
