@@ -37,17 +37,18 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
 
 const RichTextEditor = ({
   content,
-  onChange,
-}: {
+}: //onChange,
+{
   content: string;
-  onChange(body: string): void;
+  //onChange(body: string): void;
 }) => {
   const editor = useEditor({
     extensions: [StarterKit],
     content,
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-      onChange(html);
+      /*onChange(html);*/
+      console.log("html:", html);
     },
   });
 
