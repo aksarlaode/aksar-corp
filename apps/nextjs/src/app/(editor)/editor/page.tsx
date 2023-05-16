@@ -2,29 +2,71 @@
 
 import React from "react";
 import {
+  BubbleMenu,
   EditorContent,
   FloatingMenu,
   useEditor,
   type Editor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { Heading1 } from "lucide-react";
+import { Bold, Heading1, Italic, Strikethrough } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
-import { Card, CardContent } from "@aksar/ui/card";
+import { Card, CardContent, CardHeader } from "@aksar/ui/card";
+import { Menubar, MenubarMenu } from "@aksar/ui/menubar";
 
-const MenuBar = ({ editor }: { editor: Editor }) => {
+const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
     return null;
   }
 
   return (
-    <FloatingMenu editor={editor}>
+    <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+      <Menubar>
+        <MenubarMenu>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleBold().run()}
+          >
+            <Bold className="mr-2 h-4 w-4" />
+          </Button>
+        </MenubarMenu>
+        <MenubarMenu>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleItalic().run()}
+          >
+            <Italic className="mr-2 h-4 w-4" />
+          </Button>
+        </MenubarMenu>
+        <MenubarMenu>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleStrike().run()}
+          >
+            <Strikethrough className="mr-2 h-4 w-4" />
+          </Button>
+        </MenubarMenu>
+      </Menubar>
+    </BubbleMenu>
+  );
+};
+
+const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
+  if (!editor) {
+    return null;
+  }
+
+  return (
+    <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
+        <CardHeader />
         <CardContent>
           <Button
             variant="ghost"
-            onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
+            onClick={() =>
+              editor.chain().focus().toggleHeading({ level: 1 }).run()
+            }
           >
             <Heading1 className="mr-2 h-4 w-4" />
             <span>Heading 1</span>
@@ -54,7 +96,8 @@ const EditorPage = () => {
 
   return (
     <div>
-      {editor && <MenuBar editor={editor} />}
+      {editor && <BubbleMenuBar editor={editor} />}
+      {editor && <FloatingMenuBar editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );
