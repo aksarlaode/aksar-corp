@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { EditorContent, useEditor, type Editor } from "@tiptap/react";
+import {
+  EditorContent,
+  FloatingMenu,
+  useEditor,
+  type Editor,
+} from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Heading1 } from "lucide-react";
 
@@ -12,31 +17,34 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
     return null;
   }
+
   return (
-    <Card>
-      <CardContent>
-        <Button
-          variant="ghost"
-          onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
-        >
-          <Heading1 className="mr-2 h-4 w-4" />
-          <span>Heading 1</span>
-        </Button>
-      </CardContent>
-    </Card>
+    <FloatingMenu editor={editor}>
+      <Card>
+        <CardContent>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().toggleHeading({ level: 1 })}
+          >
+            <Heading1 className="mr-2 h-4 w-4" />
+            <span>Heading 1</span>
+          </Button>
+        </CardContent>
+      </Card>
+    </FloatingMenu>
   );
 };
 
 const RichTextEditor = ({
-  initialValue,
+  content,
   onChange,
 }: {
-  initialValue: string;
+  content: string;
   onChange(body: string): void;
 }) => {
   const editor = useEditor({
     extensions: [StarterKit],
-    content: initialValue,
+    content,
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       onChange(html);
