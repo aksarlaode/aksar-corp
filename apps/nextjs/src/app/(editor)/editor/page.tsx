@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Highlight from "@tiptap/extension-highlight";
 import {
   BubbleMenu,
   EditorContent,
@@ -30,6 +31,8 @@ import {
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
 
+import { bubbleMenus } from "./menubar";
+
 const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
     return null;
@@ -39,6 +42,18 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
         <CardContent className="p-2">
+          {bubbleMenus(editor).map((item, idx) => (
+            <Button
+              key={idx}
+              variant="ghost"
+              size="sm"
+              onClick={item.action}
+              disabled={item.disabled}
+              className={item.isActive}
+            >
+              {item.icon}
+            </Button>
+          ))}
           <Button
             variant="ghost"
             size="sm"
@@ -89,7 +104,7 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="flex flex-col p-4 items-start">
+        <CardContent className="flex flex-col items-start p-4">
           <Button
             className={
               editor.isActive("heading", { level: 1 }) ? "bg-secondary" : ""
@@ -220,6 +235,7 @@ const EditorPage = () => {
           keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
       }),
+      Highlight,
     ],
     content: `<p>Hello World</p>`,
     editorProps: {
