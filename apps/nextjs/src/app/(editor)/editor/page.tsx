@@ -10,23 +10,6 @@ import {
   type Editor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import {
-  Bold,
-  Code,
-  Code2,
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5,
-  Heading6,
-  Italic,
-  List,
-  ListOrdered,
-  Minus,
-  Quote,
-  Strikethrough,
-} from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
