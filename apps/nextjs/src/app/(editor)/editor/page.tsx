@@ -38,9 +38,10 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="p-3">
+        <CardContent className="p-2">
           <Button
             variant="ghost"
+            size="sm"
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
             className={editor.isActive("bold") ? "bg-secondary" : ""}
@@ -49,6 +50,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           </Button>
           <Button
             variant="ghost"
+            size="sm"
             onClick={() => editor.chain().focus().toggleItalic().run()}
             disabled={!editor.can().chain().focus().toggleItalic().run()}
             className={editor.isActive("italic") ? "bg-secondary" : ""}
@@ -57,6 +59,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           </Button>
           <Button
             variant="ghost"
+            size="sm"
             onClick={() => editor.chain().focus().toggleStrike().run()}
             disabled={!editor.can().chain().focus().toggleStrike().run()}
             className={editor.isActive("strike") ? "bg-secondary" : ""}
@@ -65,6 +68,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           </Button>
           <Button
             variant="ghost"
+            size="sm"
             onClick={() => editor.chain().focus().toggleCode().run()}
             disabled={!editor.can().chain().focus().toggleCode().run()}
             className={editor.isActive("code") ? "bg-secondary" : ""}
