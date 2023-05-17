@@ -70,6 +70,33 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   );
 };
 
+const MenuBar = ({ editor }: { editor: Editor }) => {
+  if(!editor){
+    return null;
+  }
+  
+  return (
+    <Card className="absolute p-1 top-4 right-4">
+      <CardContent>
+        <Button
+          variant="ghost"
+          onClick={() => editor.chain().focus().undo().run()}
+          disabled={!editor.can().undo()}
+        >
+          <Undo2 className="h-4 w-4" />
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => editor.chain().focus().redo().run()}
+          disabled={!editor.can().redo()}
+        >
+          <Redo2 className="h-4 w-4" />
+        </Button>
+      </CardContent>  
+    </Card>
+  )
+}
+
 const EditorPage = () => {
   const editor = useEditor({
     extensions: [
@@ -101,24 +128,7 @@ const EditorPage = () => {
 
   return (
     <div className="relative">
-      <Card className="absolute p-1 top-4 right-4">
-        <CardContent>
-          <Button
-            variant="ghost"
-            onClick={() => editor.chain().focus().undo().run()}
-            disabled={!editor.can().undo()}
-          >
-            <Undo2 className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            onClick={() => editor.chain().focus().redo().run()}
-            disabled={!editor.can().redo()}
-          >
-            <Redo2 className="h-4 w-4" />
-          </Button>
-        </CardContent>  
-      </Card>
+      {editor && <MenuBar editor={editor} />
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
       <EditorContent editor={editor} />
