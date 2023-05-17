@@ -10,6 +10,7 @@ import {
   type Editor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import { Undo2, Redo2 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
@@ -99,7 +100,25 @@ const EditorPage = () => {
   });
 
   return (
-    <div>
+    <div className="relative">
+      <Card className="absolute p-1 top-4 right-4">
+        <CardContent>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().undo().run()}
+            disabled={!editor.can().undo()}
+          >
+            <Undo2 className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            onClick={() => editor.chain().focus().redo().run()}
+            disabled={!editor.can().redo()}
+          >
+            <Redo2 className="h-4 w-4" />
+          </Button>
+        </CardContent>  
+      </Card>
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
       <EditorContent editor={editor} />
