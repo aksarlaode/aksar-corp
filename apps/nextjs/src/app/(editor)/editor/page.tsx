@@ -32,21 +32,27 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger
+            className={editor.isActive("bold") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleBold().run()}
+            disabled={!editor.chain().focus().toggleBold().run()}
           >
             <Bold className="h-4 w-4" />
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger
+            className={editor.isActive("italic") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleItalic().run()}
+            disabled={!editor.chain().focus().toggleItalic().run()}
           >
             <Italic className="h-4 w-4" />
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger
+            className={editor.isActive("strike") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleStrike().run()}
+            disabled={!editor.chain().focus().toggleStrike().run()}
           >
             <Strikethrough className="h-4 w-4" />
           </MenubarTrigger>
@@ -66,6 +72,9 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
       <Card>
         <CardContent className="flex flex-col p-4">
           <Button
+            className={
+              editor.isActive("heading", { level: 1 }) ? "bg-secondary" : ""
+            }
             variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 1 }).run()
@@ -75,6 +84,9 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
             <span>Heading 1</span>
           </Button>
           <Button
+            className={
+              editor.isActive("heading", { level: 2 }) ? "bg-secondary" : ""
+            }
             variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 2 }).run()
@@ -84,6 +96,9 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
             <span>Heading 2</span>
           </Button>
           <Button
+            className={
+              editor.isActive("heading", { level: 3 }) ? "bg-secondary" : ""
+            }
             variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 3 }).run()
