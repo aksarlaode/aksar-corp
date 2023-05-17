@@ -64,7 +64,7 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="p-4">
+        <CardContent className="flex flex-col p-4">
           <Button
             variant="ghost"
             onClick={() =>
