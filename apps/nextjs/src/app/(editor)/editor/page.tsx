@@ -18,7 +18,12 @@ import {
   Strikethrough,
 } from "lucide-react";
 
-import { Menubar, MenubarMenu, MenubarTrigger } from "@aksar/ui/menubar";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@aksar/ui/menubar";
 
 const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -61,8 +66,18 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-      <Menubar className="flex flex-col">
+      <Menubar>
         <MenubarMenu>
+          <MenubarContent data-state="open">
+            <MenubarTrigger
+              onClick={() =>
+                editor.chain().focus().toggleHeading({ level: 1 }).run()
+              }
+            >
+              <Heading1 className="mr-2 h-4 w-4" />
+              <span>Heading 1</span>
+            </MenubarTrigger>
+          </MenubarContent>
           <MenubarTrigger
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 1 }).run()
