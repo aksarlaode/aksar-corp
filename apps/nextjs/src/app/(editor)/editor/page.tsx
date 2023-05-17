@@ -10,7 +10,7 @@ import {
   type Editor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { Undo2, Redo2 } from "lucide-react";
+import { Redo2, Undo2 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
@@ -71,12 +71,12 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
 };
 
 const MenuBar = ({ editor }: { editor: Editor }) => {
-  if(!editor){
+  if (!editor) {
     return null;
   }
-  
+
   return (
-    <Card className="absolute p-1 top-4 right-4">
+    <Card className="absolute right-4 top-4 p-1">
       <CardContent>
         <Button
           variant="ghost"
@@ -92,10 +92,10 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
         >
           <Redo2 className="h-4 w-4" />
         </Button>
-      </CardContent>  
+      </CardContent>
     </Card>
-  )
-}
+  );
+};
 
 const EditorPage = () => {
   const editor = useEditor({
@@ -128,7 +128,7 @@ const EditorPage = () => {
 
   return (
     <div className="relative">
-      {editor && <MenuBar editor={editor} />
+      {editor && <MenuBar editor={editor} />}
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
       <EditorContent editor={editor} />
