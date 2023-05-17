@@ -76,24 +76,26 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div className="absolute -top-8 p-1 z-20">
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => editor.chain().focus().undo().run()}
-        disabled={!editor.can().undo()}
-      >
-        <Undo2 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => editor.chain().focus().redo().run()}
-        disabled={!editor.can().redo()}
-      >
-        <Redo2 className="h-4 w-4" />
-      </Button>
-    </div>
+    <Card className="p-1">
+      <CardContent>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => editor.chain().focus().undo().run()}
+          disabled={!editor.can().undo()}
+        >
+          <Undo2 className="h-4 w-4" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => editor.chain().focus().redo().run()}
+          disabled={!editor.can().redo()}
+        >
+          <Redo2 className="h-4 w-4" />
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -127,7 +129,7 @@ const EditorPage = () => {
   });
 
   return (
-    <div className="relative">
+    <div>
       {editor && <MenuBar editor={editor} />}
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
