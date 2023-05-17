@@ -25,7 +25,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="p-2">
+        <CardContent className="p-1">
           {bubbleMenus(editor).map((item, idx) => (
             <Button
               key={idx}
@@ -52,7 +52,7 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="flex flex-col items-start p-4">
+        <CardContent className="flex flex-col items-start p-1">
           {floatingMenus(editor).map((item, idx) => (
             <Button
               key={idx}
@@ -76,9 +76,9 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div className="absolute -top-8 p-1">
+    <div className="absolute -top-8 p-1 z-20">
       <Button
-        variant="ghost"
+        variant="outline"
         size="sm"
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().undo()}
@@ -86,7 +86,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
         <Undo2 className="h-4 w-4" />
       </Button>
       <Button
-        variant="ghost"
+        variant="outline"
         size="sm"
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().redo()}
