@@ -11,6 +11,7 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import {
   Bold,
+  Code,
   Heading1,
   Heading2,
   Heading3,
@@ -32,29 +33,38 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger
-            className={editor.isActive("bold") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleBold().run()}
-            disabled={!editor.chain().focus().toggleBold().run()}
+            disabled={!editor.can().chain().focus().toggleBold().run()}
+            className={editor.isActive("bold") ? "bg-secondary" : ""}
           >
             <Bold className="h-4 w-4" />
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger
-            className={editor.isActive("italic") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleItalic().run()}
-            disabled={!editor.chain().focus().toggleItalic().run()}
+            disabled={!editor.can().chain().focus().toggleItalic().run()}
+            className={editor.isActive("italic") ? "bg-secondary" : ""}
           >
             <Italic className="h-4 w-4" />
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger
-            className={editor.isActive("strike") ? "bg-secondary" : ""}
             onClick={() => editor.chain().focus().toggleStrike().run()}
-            disabled={!editor.chain().focus().toggleStrike().run()}
+            disabled={!editor.can().chain().focus().toggleStrike().run()}
+            className={editor.isActive("strike") ? "bg-secondary" : ""}
           >
             <Strikethrough className="h-4 w-4" />
+          </MenubarTrigger>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger
+            onClick={() => editor.chain().focus().toggleCode().run()}
+            disabled={!editor.can().chain().focus().toggleCode().run()}
+            className={editor.isActive("code") ? "bg-secondary" : ""}
+          >
+            <Code className="h-4 w-4" />
           </MenubarTrigger>
         </MenubarMenu>
       </Menubar>
