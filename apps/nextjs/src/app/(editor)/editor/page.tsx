@@ -76,9 +76,10 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div className="absolute -top-2 p-1">
+    <div className="absolute -top-8 p-1">
       <Button
         variant="ghost"
+        size="sm"
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().undo()}
       >
@@ -86,6 +87,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
       </Button>
       <Button
         variant="ghost"
+        size="sm"
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().redo()}
       >
