@@ -76,7 +76,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div>
+    <div className="grid justify-items-end">
       <Button
         variant="ghost"
         size="sm"
