@@ -28,9 +28,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
-import { cn } from "@aksar/ui";
 import { Card, CardContent } from "@aksar/ui/card";
-import { Menubar, MenubarMenu, MenubarTrigger } from "@aksar/ui/menubar";
 
 const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -39,56 +37,42 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-      <Menubar>
-        <MenubarMenu>
-          <MenubarTrigger
+      <Card>
+        <CardContent className="p-3">
+          <Button
+            variant="ghost"
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
-            className={cn(
-              "disabled:text-muted disabled:focus:bg-transparent",
-              editor.isActive("bold") ? "bg-secondary" : ""
-            )}
+            className={editor.isActive("bold") ? "bg-secondary" : ""}
           >
             <Bold className="h-4 w-4" />
-          </MenubarTrigger>
-        </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() => editor.chain().focus().toggleItalic().run()}
             disabled={!editor.can().chain().focus().toggleItalic().run()}
-            className={cn(
-              "disabled:text-muted disabled:focus:bg-transparent",
-              editor.isActive("italic") ? "bg-secondary" : ""
-            )}
+            className={editor.isActive("italic") ? "bg-secondary" : ""}
           >
             <Italic className="h-4 w-4" />
-          </MenubarTrigger>
-        </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() => editor.chain().focus().toggleStrike().run()}
             disabled={!editor.can().chain().focus().toggleStrike().run()}
-            className={cn(
-              "disabled:text-muted disabled:focus:bg-transparent",
-              editor.isActive("strike") ? "bg-secondary" : ""
-            )}
+            className={editor.isActive("strike") ? "bg-secondary" : ""}
           >
             <Strikethrough className="h-4 w-4" />
-          </MenubarTrigger>
-        </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() => editor.chain().focus().toggleCode().run()}
             disabled={!editor.can().chain().focus().toggleCode().run()}
-            className={cn(
-              "disabled:text-muted disabled:focus:bg-transparent",
-              editor.isActive("code") ? "bg-secondary" : ""
-            )}
+            className={editor.isActive("code") ? "bg-secondary" : ""}
           >
             <Code className="h-4 w-4" />
-          </MenubarTrigger>
-        </MenubarMenu>
-      </Menubar>
+          </Button>
+        </CardContent>
+      </Card>
     </BubbleMenu>
   );
 };
