@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
+import { cn } from "@aksar/ui";
 import { Card, CardContent } from "@aksar/ui/card";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@aksar/ui/menubar";
 
@@ -43,7 +44,10 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           <MenubarTrigger
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
-            className={editor.isActive("bold") ? "bg-secondary" : ""}
+            className={cn(
+              "disabled:bg-muted disabled:focus:bg-transparent",
+              editor.isActive("bold") ? "bg-secondary" : ""
+            )}
           >
             <Bold className="h-4 w-4" />
           </MenubarTrigger>
@@ -52,7 +56,10 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           <MenubarTrigger
             onClick={() => editor.chain().focus().toggleItalic().run()}
             disabled={!editor.can().chain().focus().toggleItalic().run()}
-            className={editor.isActive("italic") ? "bg-secondary" : ""}
+            className={cn(
+              "disabled:bg-muted disabled:focus:bg-transparent",
+              editor.isActive("italic") ? "bg-secondary" : ""
+            )}
           >
             <Italic className="h-4 w-4" />
           </MenubarTrigger>
@@ -61,7 +68,10 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           <MenubarTrigger
             onClick={() => editor.chain().focus().toggleStrike().run()}
             disabled={!editor.can().chain().focus().toggleStrike().run()}
-            className={editor.isActive("strike") ? "bg-secondary" : ""}
+            className={cn(
+              "disabled:bg-muted disabled:focus:bg-transparent",
+              editor.isActive("strike") ? "bg-secondary" : ""
+            )}
           >
             <Strikethrough className="h-4 w-4" />
           </MenubarTrigger>
@@ -70,7 +80,10 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
           <MenubarTrigger
             onClick={() => editor.chain().focus().toggleCode().run()}
             disabled={!editor.can().chain().focus().toggleCode().run()}
-            className={editor.isActive("code") ? "bg-secondary" : ""}
+            className={cn(
+              "disabled:bg-muted disabled:focus:bg-transparent",
+              editor.isActive("code") ? "bg-secondary" : ""
+            )}
           >
             <Code className="h-4 w-4" />
           </MenubarTrigger>
