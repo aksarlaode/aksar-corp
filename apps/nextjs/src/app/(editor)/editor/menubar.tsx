@@ -2,19 +2,17 @@ import { type Editor } from "@tiptap/react";
 import {
   Bold,
   Code,
-  /*List,
-ListOrdered,*/
+  Code2,
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
   Highlighter,
-  /*Code2,
-Heading1,
-Heading2,
-Heading3,
-Heading4,
-Heading5,
-Heading6,*/
   Italic,
-  /*Minus,
-Quote,*/
+  List,
+  ListOrdered,
+  Minus,
+  Quote,
   Strikethrough,
 } from "lucide-react";
 
@@ -48,5 +46,61 @@ export const bubbleMenus = (editor: Editor) => [
     disabled: !editor.can().chain().focus().toggleHighlight().run(),
     isActive: editor.isActive("highlight") ? "bg-secondary" : "",
     icon: <Highlighter className="h-4 w-4" />,
+  },
+];
+
+export const floatingMenus = (editor: Editor) => [
+  {
+    action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+    isActive: editor.isActive("heading", { level: 1 }) ? "bg-secondary" : "",
+    icon: <Heading1 className="h-4 w-4" />,
+    title: "Heading 1",
+  },
+  {
+    action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+    isActive: editor.isActive("heading", { level: 2 }) ? "bg-secondary" : "",
+    icon: <Heading2 className="h-4 w-4" />,
+    title: "Heading 2",
+  },
+  {
+    action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+    isActive: editor.isActive("heading", { level: 2 }) ? "bg-secondary" : "",
+    icon: <Heading3 className="h-4 w-4" />,
+    title: "Heading 3",
+  },
+  {
+    action: () => editor.chain().focus().toggleHeading({ level: 4 }).run(),
+    isActive: editor.isActive("heading", { level: 4 }) ? "bg-secondary" : "",
+    icon: <Heading4 className="h-4 w-4" />,
+    title: "Heading 4",
+  },
+  {
+    action: () => editor.chain().focus().toggleBulletList().run(),
+    isActive: editor.isActive("bulletList") ? "bg-secondary" : "",
+    icon: <List className="h-4 w-4" />,
+    title: "Bullet List",
+  },
+  {
+    action: () => editor.chain().focus().toggleOrderedList().run(),
+    isActive: editor.isActive("orderedList") ? "bg-secondary" : "",
+    icon: <ListOrdered className="h-4 w-4" />,
+    title: "Ordered List",
+  },
+  {
+    action: () => editor.chain().focus().toggleCodeBlock().run(),
+    isActive: editor.isActive("codeBlock") ? "bg-secondary" : "",
+    icon: <Code2 className="h-4 w-4" />,
+    title: "Code Block",
+  },
+  {
+    action: () => editor.chain().focus().toggleBlockquote().run(),
+    isActive: editor.isActive("blockquote") ? "bg-secondary" : "",
+    icon: <Quote className="h-4 w-4" />,
+    title: "Blockquote",
+  },
+  {
+    action: () => editor.chain().focus().setHorizontalRule().run(),
+    icon: <Minus className="h-4 w-4" />,
+    title: "Horizontal Rule",
   },
 ];
