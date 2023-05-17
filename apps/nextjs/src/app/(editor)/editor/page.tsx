@@ -18,12 +18,9 @@ import {
   Strikethrough,
 } from "lucide-react";
 
-import {
-  Menubar,
-  MenubarContent,
-  MenubarMenu,
-  MenubarTrigger,
-} from "@aksar/ui/menubar";
+import { Button } from "@aksar/ui/button";
+import { Card, CardContent } from "@aksar/ui/card";
+import { Menubar, MenubarMenu, MenubarTrigger } from "@aksar/ui/menubar";
 
 const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   if (!editor) {
@@ -66,48 +63,37 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-      <Menubar>
-        <MenubarMenu>
-          <MenubarContent data-state="open">
-            <MenubarTrigger
-              onClick={() =>
-                editor.chain().focus().toggleHeading({ level: 1 }).run()
-              }
-            >
-              <Heading1 className="mr-2 h-4 w-4" />
-              <span>Heading 1</span>
-            </MenubarTrigger>
-          </MenubarContent>
-          <MenubarTrigger
+      <Card>
+        <CardContent className="p-4">
+          <Button
+            variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 1 }).run()
             }
           >
             <Heading1 className="mr-2 h-4 w-4" />
             <span>Heading 1</span>
-          </MenubarTrigger>
-        </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 2 }).run()
             }
           >
             <Heading2 className="mr-2 h-4 w-4" />
             <span>Heading 2</span>
-          </MenubarTrigger>
-        </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger
+          </Button>
+          <Button
+            variant="ghost"
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 3 }).run()
             }
           >
             <Heading3 className="mr-2 h-4 w-4" />
             <span>Heading 3</span>
-          </MenubarTrigger>
-        </MenubarMenu>
-      </Menubar>
+          </Button>
+        </CardContent>
+      </Card>
     </FloatingMenu>
   );
 };
