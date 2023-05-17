@@ -45,7 +45,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
             className={cn(
-              "disabled:bg-muted disabled:focus:bg-transparent",
+              "disabled:text-muted disabled:focus:bg-transparent",
               editor.isActive("bold") ? "bg-secondary" : ""
             )}
           >
@@ -57,7 +57,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             onClick={() => editor.chain().focus().toggleItalic().run()}
             disabled={!editor.can().chain().focus().toggleItalic().run()}
             className={cn(
-              "disabled:bg-muted disabled:focus:bg-transparent",
+              "disabled:text-muted disabled:focus:bg-transparent",
               editor.isActive("italic") ? "bg-secondary" : ""
             )}
           >
@@ -69,7 +69,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             onClick={() => editor.chain().focus().toggleStrike().run()}
             disabled={!editor.can().chain().focus().toggleStrike().run()}
             className={cn(
-              "disabled:bg-muted disabled:focus:bg-transparent",
+              "disabled:text-muted disabled:focus:bg-transparent",
               editor.isActive("strike") ? "bg-secondary" : ""
             )}
           >
@@ -81,7 +81,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
             onClick={() => editor.chain().focus().toggleCode().run()}
             disabled={!editor.can().chain().focus().toggleCode().run()}
             className={cn(
-              "disabled:bg-muted disabled:focus:bg-transparent",
+              "disabled:text-muted disabled:focus:bg-transparent",
               editor.isActive("code") ? "bg-secondary" : ""
             )}
           >
@@ -101,7 +101,7 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="flex flex-col p-4">
+        <CardContent className="flex flex-col p-4 items-start">
           <Button
             className={
               editor.isActive("heading", { level: 1 }) ? "bg-secondary" : ""
