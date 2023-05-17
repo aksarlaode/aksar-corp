@@ -76,7 +76,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div className="flex sticky top-0 p-4 justify-end">
+    <div className="flex fixed top-0 p-4 justify-end bg-red-500">
       <Button
         variant="ghost"
         size="sm"
