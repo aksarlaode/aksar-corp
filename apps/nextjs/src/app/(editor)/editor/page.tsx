@@ -76,26 +76,24 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <Card className="p-1">
-      <CardContent>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => editor.chain().focus().undo().run()}
-          disabled={!editor.can().undo()}
-        >
-          <Undo2 className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => editor.chain().focus().redo().run()}
-          disabled={!editor.can().redo()}
-        >
-          <Redo2 className="h-4 w-4" />
-        </Button>
-      </CardContent>
-    </Card>
+    <div>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => editor.chain().focus().undo().run()}
+        disabled={!editor.can().undo()}
+      >
+        <Undo2 className="h-4 w-4" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => editor.chain().focus().redo().run()}
+        disabled={!editor.can().redo()}
+      >
+        <Redo2 className="h-4 w-4" />
+      </Button>
+    </div>
   );
 };
 
