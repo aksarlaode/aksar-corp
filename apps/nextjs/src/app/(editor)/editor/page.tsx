@@ -25,7 +25,7 @@ const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="p-2">
+        <CardContent className="p-1">
           {bubbleMenus(editor).map((item, idx) => (
             <Button
               key={idx}
@@ -52,7 +52,7 @@ const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   return (
     <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <Card>
-        <CardContent className="flex flex-col items-start p-4">
+        <CardContent className="flex flex-col items-start p-1">
           {floatingMenus(editor).map((item, idx) => (
             <Button
               key={idx}
@@ -76,24 +76,24 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <Card className="absolute right-4 top-4 p-1">
-      <CardContent>
-        <Button
-          variant="ghost"
-          onClick={() => editor.chain().focus().undo().run()}
-          disabled={!editor.can().undo()}
-        >
-          <Undo2 className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="ghost"
-          onClick={() => editor.chain().focus().redo().run()}
-          disabled={!editor.can().redo()}
-        >
-          <Redo2 className="h-4 w-4" />
-        </Button>
-      </CardContent>
-    </Card>
+    <div className="flex fixed top-0 p-4 justify-end bg-red-500">
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => editor.chain().focus().undo().run()}
+        disabled={!editor.can().undo()}
+      >
+        <Undo2 className="h-4 w-4" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => editor.chain().focus().redo().run()}
+        disabled={!editor.can().redo()}
+      >
+        <Redo2 className="h-4 w-4" />
+      </Button>
+    </div>
   );
 };
 
@@ -127,7 +127,7 @@ const EditorPage = () => {
   });
 
   return (
-    <div className="relative">
+    <div>
       {editor && <MenuBar editor={editor} />}
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
