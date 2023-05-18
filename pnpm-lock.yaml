@@ -34,6 +34,9 @@ importers:
 
   apps/expo:
     dependencies:
+      '@aksar/api':
+        specifier: '*'
+        version: link:../../packages/api
       '@expo/metro-config':
         specifier: ^0.7.1
         version: 0.7.1
@@ -92,9 +95,6 @@ importers:
         specifier: 1.9.1
         version: 1.9.1
     devDependencies:
-      '@aksar/api':
-        specifier: '*'
-        version: link:../../packages/api
       '@aksar/eslint-config':
         specifier: '*'
         version: link:../../packages/config/eslint

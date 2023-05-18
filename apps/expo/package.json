@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@aksar/api": "*",
     "@expo/metro-config": "^0.7.1",
     "@shopify/flash-list": "1.4.3",
     "@tanstack/react-query": "^4.29.5",
@@ -33,7 +34,6 @@
     "superjson": "1.9.1"
   },
   "devDependencies": {
-    "@aksar/api": "*",
     "@aksar/eslint-config": "*",
     "@aksar/tailwind-config": "*",
     "@babel/core": "^7.21.4",
