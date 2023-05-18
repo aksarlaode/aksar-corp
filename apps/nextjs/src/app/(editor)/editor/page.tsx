@@ -76,7 +76,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
   }
 
   return (
-    <div className="flex fixed top-0 p-4 justify-end bg-red-500">
+    <>
       <Button
         variant="ghost"
         size="sm"
@@ -93,7 +93,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
       >
         <Redo2 className="h-4 w-4" />
       </Button>
-    </div>
+    </>
   );
 };
 
