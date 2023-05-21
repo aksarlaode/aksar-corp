@@ -9,8 +9,8 @@ import { Icons } from "@aksar/ui/icons";
 import { EmailSignIn } from "./email-signin";
 import { OAuthSignIn } from "./oauth-signin";
 
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
+// FIXME: 1MB limit on edge and Vercel won't fix the OG-bundling issue...
+export const runtime = "nodejs";
 
 export const metadata: Metadata = {
   title: "Authentication",
