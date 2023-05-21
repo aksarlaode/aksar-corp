@@ -1,14 +1,13 @@
-
 import { authMiddleware } from "@clerk/nextjs/server";
 
 export default authMiddleware({
   publicRoutes: [
     "/",
-    "/signin*",
-    "/sso-callback*",
-    "/terms*",
-    "/privacy*",
-    "/editor*",
+    "/signin(.*)",
+    "/sso-callback(.*)",
+    "/terms(.*)",
+    "/privacy(.*)",
+    "/editor(.*)",
   ],
 });
 
