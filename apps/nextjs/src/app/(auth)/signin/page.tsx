@@ -6,7 +6,7 @@ import { buttonVariants } from "@aksar/ui/button";
 import { Command } from "@aksar/ui/command";
 import { Icons } from "@aksar/ui/icons";
 
-import { EmailSignIn } from "./email-signin";
+import { EmailSignIn } from "./email-signin2";
 import { OAuthSignIn } from "./oauth-signin";
 
 // FIXME: 1MB limit on edge and Vercel won't fix the OG-bundling issue...
