@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   Activity,
   CreditCard,
@@ -21,6 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 import { MainNav } from "~/components/main-nav";
 import { Search } from "~/components/search";
 import { UserNav } from "~/components/user-nav";
+
 import { CalendarDateRangePicker } from "./components/date-range-picker";
 import { Overview } from "./components/overview";
 import { RecentSales } from "./components/recent-sales";

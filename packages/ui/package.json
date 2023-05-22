@@ -118,6 +118,10 @@
       "import": "./dist/menubar.mjs",
       "types": "./dist/menubar.d.ts"
     },
+    "./separator": {
+      "import": "./dist/separator.mjs",
+      "types": "./dist/separator.d.ts"
+    },
     "./button": {
       "import": "./dist/button.mjs",
       "types": "./dist/button.d.ts"
@@ -141,10 +145,6 @@
     "./skeleton": {
       "import": "./dist/skeleton.mjs",
       "types": "./dist/skeleton.d.ts"
-    },
-    "./separator": {
-      "import": "./dist/separator.mjs",
-      "types": "./dist/separator.d.ts"
     }
   },
   "typesVersions": {

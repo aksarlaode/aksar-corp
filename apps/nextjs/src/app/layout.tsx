@@ -2,6 +2,7 @@ import "@aksar/ui/styles.css";
 import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
+
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -65,7 +66,7 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "`${siteConfig.url}/site.webmanifest`",
-}
+};
 
 export default function RootLayout(props: {
   children: React.ReactNode;

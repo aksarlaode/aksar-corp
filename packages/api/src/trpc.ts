@@ -8,6 +8,7 @@
  */
 
 import { type NextRequest } from "next/server";
+
 import type {
   SignedInAuthObject,
   SignedOutAuthObject,

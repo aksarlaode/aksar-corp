@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "fs/promises";
+
 import { defineConfig, type Options } from "tsup";
 
 // TODO: Would be nice not having to split up the client and server

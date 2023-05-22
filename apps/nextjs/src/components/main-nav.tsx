@@ -7,8 +7,8 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { cn } from "@aksar/ui";
 import { Icons } from "@aksar/ui/icons";
 
-import { MobileNav } from "~/components/mobile-nav";
 import { siteConfig } from "~/app/config";
+import { MobileNav } from "~/components/mobile-nav";
 
 export type NavItem = {
   title: string;

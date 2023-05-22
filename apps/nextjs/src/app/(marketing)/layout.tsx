@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { SiteFooter } from "~/components/footer";
 import { MainNav } from "~/components/main-nav";
 import { UserNav } from "~/components/user-nav";
+
 import { navItems } from "../config";
 
 export default function RootLayout({
