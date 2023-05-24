@@ -56,7 +56,7 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {marketingFeatures.map((feature) => (
-            <Card key={feature.title} className={feature.extraClassNames}>
+            <Card key={feature.title}>
               <CardHeader>{feature.icon}</CardHeader>
               <CardContent>
                 <CardTitle>{feature.title}</CardTitle>
