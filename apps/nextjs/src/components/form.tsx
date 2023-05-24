@@ -12,6 +12,7 @@ import {
 } from "react-hook-form";
 
 import { cn } from "@aksar/ui";
+import { Input, type InputProps } from "@aksar/ui/input";
 import { Label } from "@aksar/ui/label";
 
 const Form = FormProvider;
@@ -102,6 +103,26 @@ const FormLabel = React.forwardRef<
 });
 FormLabel.displayName = "FormLabel";
 
+const FormInput = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, ...props }, ref) => {
+    const { error, formItemId } = useFormField();
+
+    return (
+      <Input
+        ref={ref}
+        id={formItemId}
+        className={cn(
+          error &&
+            "border-destructive text-destructive ring-offset-destructive placeholder:text-destructive focus-visible:ring-destructive",
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+FormInput.displayName = "FormInput";
+
 const FormControl = React.forwardRef<
   React.ElementRef<typeof Slot>,
   React.ComponentPropsWithoutRef<typeof Slot>
@@ -170,6 +191,7 @@ export {
   useFormField,
   Form,
   FormItem,
+  FormInput,
   FormLabel,
   FormControl,
   FormDescription,
