@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 import Highlight from "@tiptap/extension-highlight";
+import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
@@ -36,6 +37,11 @@ const Content = () => {
         },
       }),
       Highlight,
+      Placeholder.configure({
+        placeholder: "Write something...",
+        emptyEditorClass:
+          "before:pointer-events-none before:float-left before:h-0 before:text-muted first:before:content-[attr(data-placeholder)]",
+      }),
     ],
     editorProps: {
       attributes: {
