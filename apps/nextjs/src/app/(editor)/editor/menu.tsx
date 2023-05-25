@@ -111,7 +111,7 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
   };
 
   return (
-    <>
+    <div className="flex">
       <Button
         variant="ghost"
         size="sm"
@@ -157,6 +157,6 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 };
