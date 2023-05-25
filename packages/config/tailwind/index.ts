@@ -102,6 +102,14 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
