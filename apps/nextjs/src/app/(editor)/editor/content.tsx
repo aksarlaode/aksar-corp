@@ -48,7 +48,7 @@ const Content = () => {
   });
 
   return (
-    <div>
+    <div className="grid gap-6">
       <Input placeholder="Title" onChange={handleOnChangeTitle} value={title} />
       {editor && (
         <MenuBar title={title} setContent={setContent} editor={editor} />
