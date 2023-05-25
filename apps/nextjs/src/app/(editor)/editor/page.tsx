@@ -11,7 +11,7 @@ export const revalidate = 60;
 
 const Post = () => {
   return (
-    <div className="container relative h-screen w-screen flex-col">
+    <div className="container relative h-screen w-screen flex-col pt-8">
       <Link
         href="/"
         className={cn(
@@ -25,7 +25,7 @@ const Post = () => {
         </>
       </Link>
 
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+      <div className="mx-auto flex w-full flex-col space-y-6 sm:w-[350px]">
         <Content />
       </div>
     </div>
