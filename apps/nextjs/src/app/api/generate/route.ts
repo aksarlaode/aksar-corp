@@ -1,17 +1,8 @@
 import { NextResponse } from "next/server";
 
-import {
-  Configuration,
-  OpenAIApi,
-  type ChatCompletionRequestMessage,
-} from "openai";
+import { type ChatCompletionRequestMessage } from "openai";
 
-import { env } from "~/env.mjs";
-
-const configuration = new Configuration({
-  apiKey: env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+import { openai } from "~/utils/openai";
 
 export async function POST(request: Request) {
   try {

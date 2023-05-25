@@ -16,6 +16,9 @@ import {
   DialogTrigger,
 } from "@aksar/ui/dialog";
 import { Input } from "@aksar/ui/input";
+import { Separator } from "@aksar/ui/separator";
+
+import { getBaseUrl } from "~/utils/api";
 
 import { bubbleMenus, floatingMenus } from "./menubar";
 
@@ -92,19 +95,19 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
       .setContent("Generating Ai Content. Please Wait...")
       .run();
 
-    await fetch(`/api/generate`, {
+    const response = await fetch(`${getBaseUrl()}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title: title,
-        role: role,
+        title,
+        role,
       }),
-    })
-      .then((res) => res.json())
-      .then((data: { content: string }) => {
-        editor.chain().focus().setContent(data.content).run();
-        setContent(data.content);
-      });
+    });
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const data: { content: string } = await response.json();
+
+    editor.chain().focus().setContent(data.content).run();
+    setContent(data.content);
   };
 
   return (
@@ -125,6 +128,7 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
       >
         <Redo2 className="h-4 w-4" />
       </Button>
+      <Separator orientation="vertical" />
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline" size="sm">

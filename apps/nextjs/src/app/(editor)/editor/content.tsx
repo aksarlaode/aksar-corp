@@ -48,14 +48,16 @@ const Content = () => {
   });
 
   return (
-    <div>
+    <div className="space-y-6">
       <Input placeholder="Title" onChange={handleOnChangeTitle} value={title} />
-      {editor && (
-        <MenuBar title={title} setContent={setContent} editor={editor} />
-      )}
-      {editor && <BubbleMenuBar editor={editor} />}
-      {editor && <FloatingMenuBar editor={editor} />}
-      <EditorContent editor={editor} />
+      <div>
+        {editor && (
+          <MenuBar title={title} setContent={setContent} editor={editor} />
+        )}
+        {editor && <BubbleMenuBar editor={editor} />}
+        {editor && <FloatingMenuBar editor={editor} />}
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 };
