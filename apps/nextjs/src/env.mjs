@@ -8,6 +8,7 @@ export const env = createEnv({
     CLERK_SECRET_KEY: z.string().optional(),
     STRIPE_API_KEY: z.string(),
     STRIPE_WEBHOOK_SECRET: z.string(),
+    OPENAI_API_KEY: z.string(),
   },
   client: {
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1),
@@ -20,6 +21,7 @@ export const env = createEnv({
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
     STRIPE_API_KEY: process.env.STRIPE_API_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
   skipValidation: !!process.env.CI,
 });
