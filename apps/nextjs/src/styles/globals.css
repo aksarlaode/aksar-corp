@@ -80,3 +80,7 @@
     @apply max-sm:px-4;
   }
 }
+
+.ProseMirror > * + * {
+  @apply mx-0;
+}
