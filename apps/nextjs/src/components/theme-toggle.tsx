@@ -22,7 +22,7 @@ export default function ThemeToggle(props: {
   const triggerIcon = {
     light: <Icons.sun className="h-6 w-6" />,
     dark: <Icons.moon className="h-6 w-6" />,
-    system: <Icons.system className="h-6 w-6" />,
+    system: <Icons.laptop className="h-6 w-6" />,
   }[theme as "light" | "dark" | "system"];
 
   return (

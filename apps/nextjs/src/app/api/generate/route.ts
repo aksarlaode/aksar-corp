@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 
-import { Configuration, OpenAIApi } from "openai";
+import {
+  Configuration,
+  OpenAIApi,
+  type ChatCompletionRequestMessage,
+} from "openai";
 
 import { env } from "~/env.mjs";
 
@@ -28,7 +32,7 @@ export async function POST(request: Request) {
             role || "I am a helpful assistant"
           }. Write with html tags.`,
         },
-      ],
+      ] as ChatCompletionRequestMessage[],
     });
 
     // response.revalidate("/api/posts")

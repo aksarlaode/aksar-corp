@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState } from "react";
 
 import { BubbleMenu, FloatingMenu, type Editor } from "@tiptap/react";
@@ -95,18 +92,19 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
       .setContent("Generating Ai Content. Please Wait...")
       .run();
 
-    const response = await fetch(`/api/openai`, {
+    await fetch(`/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: title,
         role: role,
       }),
-    });
-    const data = await response.json();
-
-    editor.chain().focus().setContent(data.content).run();
-    setContent(data.content);
+    })
+      .then((res) => res.json())
+      .then((data: { content: string }) => {
+        editor.chain().focus().setContent(data.content).run();
+        setContent(data.content);
+      });
   };
 
   return (

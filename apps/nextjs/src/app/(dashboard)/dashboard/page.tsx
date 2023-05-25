@@ -19,7 +19,7 @@ import {
 import { Icons } from "@aksar/ui/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 
-import { MainNav } from "~/components/main-nav";
+// import { MainNav } from "~/components/main-nav";
 import { Search } from "~/components/search";
 import { UserNav } from "~/components/user-nav";
 
@@ -43,7 +43,7 @@ export default function DashboardPage() {
             /
           </span>
           <TeamSwitcher />
-          <MainNav className="mx-6" />
+          {/* <MainNav className="mx-6" /> */}
           <div className="ml-auto flex items-center space-x-4">
             <Search />
             {/* @ts-expect-error - ... */}
