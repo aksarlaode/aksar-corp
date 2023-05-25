@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { title, role } = await request.json();
 
-    const aiResponse = await openai.createChatCompletion({
+    const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
         {
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     // response.revalidate("/api/posts")
     return NextResponse.json(
       {
-        content: aiResponse.data.choices[0]?.message?.content,
+        content: completion.data.choices[0]?.message?.content,
       },
       { status: 200 },
     );

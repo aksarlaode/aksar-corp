@@ -6,11 +6,17 @@ import Highlight from "@tiptap/extension-highlight";
 import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
+import { Input } from "@aksar/ui/input";
+
 import { BubbleMenuBar, FloatingMenuBar, MenuBar } from "./menu";
 
 const Content = () => {
-  // const [title, setTitle] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("<p>Hello World</p>");
+
+  const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnChangeContent = ({ editor }: any) => {
     if (!(editor as Editor).isEmpty) "";
@@ -43,7 +49,10 @@ const Content = () => {
 
   return (
     <div>
-      {editor && <MenuBar setContent={setContent} editor={editor} />}
+      <Input placeholder="Title" onChange={handleOnChangeTitle} value={title} />
+      {editor && (
+        <MenuBar title={title} setContent={setContent} editor={editor} />
+      )}
       {editor && <BubbleMenuBar editor={editor} />}
       {editor && <FloatingMenuBar editor={editor} />}
       <EditorContent editor={editor} />

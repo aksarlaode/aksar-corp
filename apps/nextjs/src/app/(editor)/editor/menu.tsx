@@ -10,6 +10,7 @@ import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -77,10 +78,10 @@ export const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
 type Props = {
   editor: Editor | null;
   setContent: (content: string) => void;
-  //   title: string;
+  title: string;
 };
 
-export const MenuBar = ({ editor, /*title,*/ setContent }: Props) => {
+export const MenuBar = ({ editor, title, setContent }: Props) => {
   const [role, setRole] = useState<string>("I am a helpful assistant.");
 
   if (!editor) {
@@ -98,7 +99,7 @@ export const MenuBar = ({ editor, /*title,*/ setContent }: Props) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // title: title,
+        title: title,
         role: role,
       }),
     });
@@ -128,7 +129,9 @@ export const MenuBar = ({ editor, /*title,*/ setContent }: Props) => {
       </Button>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="ghost" size="sm">Ask AI!</Button>
+          <Button variant="outline" size="sm">
+            Ask AI!
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -144,9 +147,11 @@ export const MenuBar = ({ editor, /*title,*/ setContent }: Props) => {
             value={role}
           />
           <DialogFooter>
-            <Button type="submit" onClick={postAiContent}>
-              Save
-            </Button>
+            <DialogClose asChild>
+              <Button type="submit" onClick={postAiContent}>
+                Save
+              </Button>
+            </DialogClose>
           </DialogFooter>
         </DialogContent>
       </Dialog>
