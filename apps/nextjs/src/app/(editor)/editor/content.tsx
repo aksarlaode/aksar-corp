@@ -2,14 +2,26 @@
 
 import React, { useState } from "react";
 
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import css from "highlight.js/lib/languages/css";
+import js from "highlight.js/lib/languages/javascript";
+import ts from "highlight.js/lib/languages/typescript";
+import html from "highlight.js/lib/languages/xml";
+// load all highlight.js languages
+import { lowlight } from "lowlight";
 
 import { Input } from "@aksar/ui/input";
 
 import { BubbleMenuBar, FloatingMenuBar, MenuBar } from "./menu";
+
+lowlight.registerLanguage("html", html);
+lowlight.registerLanguage("css", css);
+lowlight.registerLanguage("js", js);
+lowlight.registerLanguage("ts", ts);
 
 const Content = () => {
   const [title, setTitle] = useState<string>("");
@@ -35,6 +47,9 @@ const Content = () => {
           keepMarks: true,
           keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
+      }),
+      CodeBlockLowlight.configure({
+        lowlight,
       }),
       Highlight,
       Placeholder.configure({
