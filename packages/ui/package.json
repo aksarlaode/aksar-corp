@@ -39,7 +39,7 @@
   "devDependencies": {
     "@aksar/eslint-config": "0.1.0",
     "@aksar/tailwind-config": "0.1.0",
-    "@types/react": "^18.2.6",
+    "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "date-fns": "^2.29.3",
     "eslint": "^8.39.0",
