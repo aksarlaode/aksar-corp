@@ -1,25 +1,12 @@
 import { useState } from "react";
 
 import { BubbleMenu, FloatingMenu, type Editor } from "@tiptap/react";
-import { Redo2, Undo2 } from "lucide-react";
+import { MoreHorizontalIcon, Redo2, Undo2 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@aksar/ui/dialog";
-import { Input } from "@aksar/ui/input";
-import { Separator } from "@aksar/ui/separator";
 
-import { getBaseUrl } from "~/utils/api";
-
+import AskAI from "./ask-ai";
 import { bubbleMenus, floatingMenus } from "./menubar";
 
 export const BubbleMenuBar = ({ editor }: { editor: Editor }) => {
@@ -75,40 +62,18 @@ export const FloatingMenuBar = ({ editor }: { editor: Editor }) => {
   );
 };
 
-type Props = {
+export const MenuBar = ({
+  editor,
+  setContent,
+}: {
   editor: Editor | null;
   setContent: (content: string) => void;
-  title: string;
-};
-
-export const MenuBar = ({ editor, title, setContent }: Props) => {
-  const [role, setRole] = useState<string>("I am a helpful assistant.");
+}) => {
+  const [AIThinking, setAIThinking] = useState(false);
 
   if (!editor) {
     return null;
   }
-
-  const postAiContent = async () => {
-    editor
-      .chain()
-      .focus()
-      .setContent("Generating Ai Content. Please Wait...")
-      .run();
-
-    const response = await fetch(`${getBaseUrl()}/api/generate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title,
-        role,
-      }),
-    });
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const data: { content: string } = await response.json();
-
-    editor.chain().focus().setContent(data.content).run();
-    setContent(data.content);
-  };
 
   return (
     <div className="flex">
@@ -128,35 +93,16 @@ export const MenuBar = ({ editor, title, setContent }: Props) => {
       >
         <Redo2 className="h-4 w-4" />
       </Button>
-      <Separator orientation="vertical" />
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline" size="sm">
-            Ask AI!
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Generate AI Content</DialogTitle>
-            <DialogDescription>
-              What type of writer do you want?{" "}
-            </DialogDescription>
-          </DialogHeader>
-          <Input
-            id="name"
-            placeholder="Role"
-            onChange={(e) => setRole(e.target.value)}
-            value={role}
-          />
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button type="submit" onClick={postAiContent}>
-                Save
-              </Button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <AskAI
+        setContent={setContent}
+        editor={editor}
+        setAIThinking={setAIThinking}
+      />
+      {AIThinking && (
+        <Button variant="ghost" size="sm" className="ml-auto">
+          <MoreHorizontalIcon className="h-4 w-4 animate-pulse" />
+        </Button>
+      )}
     </div>
   );
 };
