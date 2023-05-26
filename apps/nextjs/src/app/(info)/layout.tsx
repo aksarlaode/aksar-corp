@@ -6,6 +6,8 @@ import { UserNav } from "~/components/user-nav";
 
 import { navItems } from "../config";
 
+export const runtime = "edge";
+
 export default function RootLayout({
   children,
 }: {
