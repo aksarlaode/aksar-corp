@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useState } from "react";
 
 import { type Editor } from "@tiptap/react";
@@ -39,16 +40,31 @@ function AskAI({
   setContent: (content: string) => void;
   editor: Editor;
 }) {
+  const [chatItems, setChatItems] = useState<ChatItem[]>([]);
   const [prompt, setPrompt] = useState<string>("");
 
   const generatedTextMutation = api.ai.generateText.useMutation({
     onSuccess: (data) => {
-      editor.chain().focus().setContent(data.generatedText).run();
-      setContent(data.generatedText);
+      setChatItems([
+        ...chatItems,
+        {
+          content: data.generatedText,
+          author: "AI",
+        },
+      ]);
+      editor.chain().focus().setContent(chatItems[0]!.content).run();
+      setContent(chatItems[0]!.content);
     },
 
     onError: (error) => {
-      console.error(error.message);
+      setChatItems([
+        ...chatItems,
+        {
+          content: error.message ?? "An error occurred",
+          author: "AI",
+          isError: true,
+        },
+      ]);
     },
 
     onSettled: () => {

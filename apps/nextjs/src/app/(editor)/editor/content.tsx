@@ -9,9 +9,8 @@ import StarterKit from "@tiptap/starter-kit";
 
 import { BubbleMenuBar, FloatingMenuBar, MenuBar } from "./menu";
 
-
 const Content = () => {
-  const [content, setContent] = useState<string>("<p>Hello World</p>");
+  const [content, setContent] = useState<string>("");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnChangeContent = ({ editor }: any) => {
@@ -35,7 +34,7 @@ const Content = () => {
       Placeholder.configure({
         placeholder: "Write something...",
         emptyEditorClass:
-          "before:pointer-events-none before:float-left before:h-0 before:text-muted first:before:content-[attr(data-placeholder)]",
+          "before:pointer-events-none before:float-left before:h-0 first:before:content-[attr(data-placeholder)]",
       }),
     ],
     editorProps: {
@@ -49,15 +48,11 @@ const Content = () => {
   });
 
   return (
-    <div className="space-y-6">
-      <div>
-        {editor && (
-          <MenuBar setContent={setContent} editor={editor} />
-        )}
-        {editor && <BubbleMenuBar editor={editor} />}
-        {editor && <FloatingMenuBar editor={editor} />}
-        <EditorContent editor={editor} />
-      </div>
+    <div>
+      {editor && <MenuBar setContent={setContent} editor={editor} />}
+      {editor && <BubbleMenuBar editor={editor} />}
+      {editor && <FloatingMenuBar editor={editor} />}
+      <EditorContent editor={editor} />
     </div>
   );
 };
