@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 
 import { type Editor } from "@tiptap/react";
@@ -41,31 +39,16 @@ function AskAI({
   setContent: (content: string) => void;
   editor: Editor;
 }) {
-  const [chatItems, setChatItems] = useState<ChatItem[]>([]);
   const [prompt, setPrompt] = useState<string>("");
 
   const generatedTextMutation = api.ai.generateText.useMutation({
     onSuccess: (data) => {
-      setChatItems([
-        ...chatItems,
-        {
-          content: data.generatedText,
-          author: "AI",
-        },
-      ]);
       editor.chain().focus().setContent(data.generatedText).run();
       setContent(data.generatedText);
     },
 
     onError: (error) => {
-      setChatItems([
-        ...chatItems,
-        {
-          content: error.message ?? "An error occurred",
-          author: "AI",
-          isError: true,
-        },
-      ]);
+      console.error(error.message);
     },
 
     onSettled: () => {
@@ -75,14 +58,6 @@ function AskAI({
 
   const handleUpdate = (prompt: string) => {
     setAIThinking(true);
-
-    setChatItems([
-      ...chatItems,
-      {
-        content: prompt.replace(/\n/g, "\n\n"),
-        author: "User",
-      },
-    ]);
 
     generatedTextMutation.mutate({ prompt });
   };

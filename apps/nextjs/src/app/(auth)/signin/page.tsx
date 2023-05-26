@@ -6,11 +6,10 @@ import { buttonVariants } from "@aksar/ui/button";
 import { Command } from "@aksar/ui/command";
 import { Icons } from "@aksar/ui/icons";
 
-import { EmailSignIn } from "./email-signin2";
+import { EmailSignIn } from "./email-signin";
 import { OAuthSignIn } from "./oauth-signin";
 
-// FIXME: 1MB limit on edge and Vercel won't fix the OG-bundling issue...
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   title: "Authentication",

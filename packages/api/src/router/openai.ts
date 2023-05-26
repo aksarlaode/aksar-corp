@@ -18,7 +18,7 @@ type Message = {
 
 const messages: Message[] = [];
 
-export const aiRouter = createTRPCRouter({
+export const openaiRouter = createTRPCRouter({
   generateText: publicProcedure
     .input(z.object({ prompt: z.string() }))
     .mutation(async ({ input }) => {
@@ -62,8 +62,4 @@ export const aiRouter = createTRPCRouter({
         });
       }
     }),
-
-  reset: publicProcedure.mutation(() => {
-    messages.length = 0;
-  }),
 });
