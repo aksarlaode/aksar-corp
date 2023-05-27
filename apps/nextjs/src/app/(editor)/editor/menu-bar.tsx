@@ -89,7 +89,7 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
             Ask AI!
           </Button>
         </DialogTrigger>
-        <DialogContent className="block sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Generate AI Content</DialogTitle>
             <DialogDescription>
@@ -111,7 +111,7 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
             }}
           />
 
-          <DialogFooter className="block">
+          <DialogFooter>
             <DialogClose asChild>
               <Button type="submit" onClick={postAiContent}>
                 <SendIcon className="h-5 w-5 text-gray-400" />

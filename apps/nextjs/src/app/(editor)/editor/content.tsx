@@ -11,6 +11,7 @@ import { Input } from "@aksar/ui/input";
 
 import { BubbleMenuBar, FloatingMenuBar } from "./menu";
 import { MenuBar } from "./menu-bar";
+//import { api } from "~/utils/api";
 
 export type ChatItem = {
   author: "User" | "AI";
@@ -20,6 +21,8 @@ export type ChatItem = {
 
 const Content = () => {
   const [content, setContent] = useState<string>("");
+
+  //const post=api.post.byId.useQuery()
   const [title, setTitle] = useState<string>("");
 
   const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,16 +37,7 @@ const Content = () => {
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        bulletList: {
-          keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
-        },
-        orderedList: {
-          keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
-        },
-      }),
+      StarterKit,
       Highlight,
       Placeholder.configure({
         placeholder: "Write something...",
