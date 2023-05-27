@@ -15,6 +15,7 @@ import {
   DialogTrigger,
 } from "@aksar/ui/dialog";
 import { Input } from "@aksar/ui/input";
+import { toast } from "@aksar/ui/use-toast";
 
 import { getBaseUrl } from "~/utils/api";
 
@@ -33,28 +34,37 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
   }
 
   const postAiContent = async () => {
-    setWaiting(true);
-    editor
-      .chain()
-      .focus()
-      .setContent("Generating Ai Content. Please Wait...")
-      .run();
+    try {
+      setWaiting(true);
+      editor
+        .chain()
+        .focus()
+        .setContent("Generating Ai Content. Please Wait...")
+        .run();
 
-    const response = await fetch(`${getBaseUrl}/api/generate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: title,
-        role: role,
-      }),
-    });
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const data: { content: string } = await response.json();
+      const response = await fetch(`${getBaseUrl}/api/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: title,
+          role: role,
+        }),
+      });
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const data: { content: string } = await response.json();
+      console.log(data);
 
-    editor.chain().focus().setContent(data.content).run();
-    setContent(data.content);
-    setWaiting(false);
+      editor.chain().focus().setContent(data.content).run();
+      setContent(data.content);
+      setWaiting(false);
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "error",
+      });
+    }
   };
+
   return (
     <div className="flex">
       <Button
@@ -79,7 +89,7 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
             Ask AI!
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="block sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Generate AI Content</DialogTitle>
             <DialogDescription>
@@ -101,7 +111,7 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
             }}
           />
 
-          <DialogFooter>
+          <DialogFooter className="block">
             <DialogClose asChild>
               <Button type="submit" onClick={postAiContent}>
                 <SendIcon className="h-5 w-5 text-gray-400" />

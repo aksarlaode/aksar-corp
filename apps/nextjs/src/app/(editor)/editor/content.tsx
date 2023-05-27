@@ -1,12 +1,13 @@
 "use client";
 
-import { title } from "process";
 import React, { useState } from "react";
 
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor, type Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+
+import { Input } from "@aksar/ui/input";
 
 import { BubbleMenuBar, FloatingMenuBar } from "./menu";
 import { MenuBar } from "./menu-bar";
@@ -19,6 +20,11 @@ export type ChatItem = {
 
 const Content = () => {
   const [content, setContent] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+
+  const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnChangeContent = ({ editor }: any) => {
@@ -61,6 +67,7 @@ const Content = () => {
 
   return (
     <div className="space-y-6">
+      <Input placeholder="Title" onChange={handleOnChangeTitle} value={title} />
       <div>
         {editor && (
           <MenuBar setContent={setContent} title={title} editor={editor} />
