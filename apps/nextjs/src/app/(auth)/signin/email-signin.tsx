@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useSignIn, useSignUp } from "@clerk/nextjs";
 
 import { Button } from "@aksar/ui/button";
-import { Icons } from "@aksar/ui/icons";
+//import { Icons } from "@aksar/ui/icons";
 import { Input } from "@aksar/ui/input";
 import { useToast } from "@aksar/ui/use-toast";
 
@@ -120,8 +120,8 @@ export function EmailSignIn() {
           className="bg-background"
         />
       </div>
-      <Button disabled={isLoading}>
-        {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+      <Button disabled={isLoading} isLoading={isLoading}>
+        {/*isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />*/}
         Sign In with Email
       </Button>
     </form>
