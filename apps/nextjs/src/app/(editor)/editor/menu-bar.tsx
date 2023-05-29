@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { type Editor } from "@tiptap/react";
+import type { Editor } from "@tiptap/react";
 import { MoreHorizontalIcon, Redo2, SendIcon, Undo2 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
@@ -101,7 +101,6 @@ export const MenuBar = ({ editor, setContent, title }: Props) => {
             spellCheck={false}
             className="h-12 w-full"
             placeholder="Ask something..."
-            autoFocus
             value={role}
             onChange={(e) => setRole(e.target.value)}
             onKeyDown={(e) => {

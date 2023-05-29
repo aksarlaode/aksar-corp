@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 
@@ -75,26 +75,24 @@ export default function RootLayout(props: {
   modal: React.ReactNode;
 }) {
   return (
-    <>
-      <ClerkProvider>
-        <html lang="en" suppressHydrationWarning>
-          <body
-            className={cn(
-              "min-h-screen bg-background font-sans antialiased",
-              fontSans.variable,
-              fontCal.variable,
-            )}
-          >
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {props.children}
-              {props.modal}
-              <TailwindIndicator />
-              <Analytics />
-              <Toaster />
-            </ThemeProvider>
-          </body>
-        </html>
-      </ClerkProvider>
-    </>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable,
+            fontCal.variable,
+          )}
+        >
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {props.children}
+            {props.modal}
+            <TailwindIndicator />
+            <Analytics />
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

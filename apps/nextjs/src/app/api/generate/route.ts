@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
 
-import { type AxiosResponse } from "axios";
-import {
-  Configuration,
-  OpenAIApi,
-  type CreateChatCompletionResponse,
-} from "openai";
+import type { AxiosResponse } from "axios";
+import { Configuration, OpenAIApi } from "openai";
+import type { CreateChatCompletionResponse } from "openai";
 
 import { env } from "~/env.mjs";
 

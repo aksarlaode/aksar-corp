@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { useSignIn } from "@clerk/nextjs";
-import { type OAuthStrategy } from "@clerk/types";
+import type { OAuthStrategy } from "@clerk/types";
 
 import { Button } from "@aksar/ui/button";
 import { Icons } from "@aksar/ui/icons";

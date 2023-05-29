@@ -7,7 +7,7 @@ import { Icons } from "@aksar/ui/icons";
 import { siteConfig } from "~/app/config";
 import { useLockBody } from "~/hooks/use-lock-body";
 
-import { type NavItem } from "./main-nav";
+import type { NavItem } from "./main-nav";
 
 interface MobileNavProps {
   items: NavItem[];
