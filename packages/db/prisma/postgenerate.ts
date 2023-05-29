@@ -6,13 +6,13 @@
 import { readFile, rm, writeFile } from "fs/promises";
 import path from "path";
 
-import { format, resolveConfig } from "prettier";
+//import { format, resolveConfig } from "prettier";
 
 const generatedFile = path.join(process.cwd(), "types.ts");
 const outputFile = path.join(process.cwd(), "index.ts");
 
 (async () => {
-  const prettierConfig = await resolveConfig(".prettierrc.js");
+  //const prettierConfig = await resolveConfig(".prettierrc.js");
 
   const dbTypes = await readFile(generatedFile, "utf-8");
 
@@ -33,11 +33,11 @@ export const db = new Kysely<DB>({
 export const genId = nanoid;
 `;
 
-  const formatted = format(output, {
+  /*const formatted = format(output, {
     ...prettierConfig,
     parser: "typescript",
-  });
-  await writeFile(outputFile, formatted);
+  });*/
+  await writeFile(outputFile, output, "utf-8");
   await rm(path.join(process.cwd(), "types.ts"));
 })().catch((e) => {
   console.error(e);

@@ -4,13 +4,15 @@ import React, { useState } from "react";
 
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
-import { EditorContent, useEditor, type Editor } from "@tiptap/react";
+import { EditorContent, useEditor } from "@tiptap/react";
+import type { Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
 import { Input } from "@aksar/ui/input";
 
 import { BubbleMenuBar, FloatingMenuBar } from "./menu";
 import { MenuBar } from "./menu-bar";
+
 //import { api } from "~/utils/api";
 
 export type ChatItem = {

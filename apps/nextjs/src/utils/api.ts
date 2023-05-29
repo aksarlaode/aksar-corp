@@ -30,4 +30,4 @@ export const api = createTRPCNext<AppRouter>({
   ssr: false,
 });
 
-export { type RouterInputs, type RouterOutputs } from "@aksar/api";
+export type { RouterInputs, RouterOutputs } from "@aksar/api";

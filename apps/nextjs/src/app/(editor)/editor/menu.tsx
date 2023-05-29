@@ -1,4 +1,5 @@
-import { BubbleMenu, FloatingMenu, type Editor } from "@tiptap/react";
+import { BubbleMenu, FloatingMenu } from "@tiptap/react";
+import type { Editor } from "@tiptap/react";
 
 import { Button } from "@aksar/ui/button";
 import { Card, CardContent } from "@aksar/ui/card";
