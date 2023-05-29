@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+import "~/styles/globals.css";
+import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 
@@ -11,6 +12,8 @@ import { Toaster } from "@aksar/ui/toaster";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { ThemeProvider } from "~/components/theme-provider";
 
+import { siteConfig } from "./config";
+
 const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -20,10 +23,10 @@ const fontCal = LocalFont({
   variable: "--font-cal",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "siteConfig.name",
-    template: "%s | ${siteConfig.name}",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
   description: "siteConfig.description",
   keywords: [
@@ -35,11 +38,11 @@ export const metadata = {
   ],
   authors: [
     {
-      name: "shadcn",
+      name: "ode_aksar",
       url: "https://bahutara.eu.org",
     },
   ],
-  creator: "shadcn",
+  creator: "ode_aksar",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -48,13 +51,13 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "siteConfig.url",
-    title: "siteConfig.name",
+    title: siteConfig.name,
     description: "siteConfig.description",
-    siteName: "siteConfig.name",
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "siteConfig.name",
+    title: siteConfig.name,
     description: "siteConfig.description",
     images: "[`${siteConfig.url}/og.jpg`]",
     creator: "@ode_aksar",

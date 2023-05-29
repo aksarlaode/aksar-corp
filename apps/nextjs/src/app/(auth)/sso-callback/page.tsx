@@ -12,12 +12,11 @@ export const runtime = "edge";
 export default function SSOCallback(props: {
   searchParams: HandleOAuthCallbackParams;
 }) {
-  console.log("SSO Callback", props);
   const { handleRedirectCallback } = useClerk();
 
   useEffect(() => {
     void handleRedirectCallback(props.searchParams);
-  }, [props, handleRedirectCallback]);
+  }, [props.searchParams, handleRedirectCallback]);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center">
