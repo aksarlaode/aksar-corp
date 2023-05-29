@@ -16,7 +16,7 @@ const config = {
     "prettier-plugin-tailwindcss",
   ],
   tailwindConfig: "./packages/config/tailwind",
-  importOrderTypeScriptVersion: "4.4.0",
+  importOrderTypeScriptVersion: "4.9.5",
   importOrder: [
     "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",
@@ -30,6 +30,7 @@ const config = {
     "",
     "^[.]",
   ],
+  importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
 };
 
 module.exports = config;
