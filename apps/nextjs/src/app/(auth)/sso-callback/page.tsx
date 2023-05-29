@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { useClerk } from "@clerk/nextjs/app-beta/client";
+import { useClerk } from "@clerk/nextjs";
 import type { HandleOAuthCallbackParams } from "@clerk/types";
 
 import { Icons } from "@aksar/ui/icons";
@@ -20,7 +20,7 @@ export default function SSOCallback(props: {
   }, [props, handleRedirectCallback]);
 
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex h-screen w-screen items-center justify-center">
       <Icons.spinner className="mr-2 h-16 w-16 animate-spin" />
     </div>
   );

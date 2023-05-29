@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 
-import { useSignIn, useSignUp } from "@clerk/nextjs/app-beta/client";
+import { useSignIn, useSignUp } from "@clerk/nextjs";
 
 import { Button } from "@aksar/ui/button";
 import { Icons } from "@aksar/ui/icons";
@@ -27,9 +27,7 @@ export function EmailSignIn() {
     setIsLoading(true);
     await signIn
       .create({
-        strategy: "email_link",
         identifier: email,
-        redirectUrl: `${window.location.origin}/`,
       })
       .catch((error) => {
         console.log("sign-in error", JSON.stringify(error));
