@@ -395,8 +395,8 @@ importers:
         specifier: ^4.14.1
         version: 4.14.1
       prisma-kysely:
-        specifier: ^1.4.1
-        version: 1.4.1
+        specifier: ^1.4.2
+        version: 1.4.2
       tsx:
         specifier: ^3.12.7
         version: 3.12.7
@@ -12443,8 +12443,8 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /prisma-kysely@1.4.1:
-    resolution: {integrity: sha512-Ij3AlPMoJLrgtUSG+jrKc1AU5JgJOTUpVDe4s5V9SNTh6xVdl4pTWmPXZHEfgUQnawlSSGKpQv1cM+WzuSnQBQ==}
+  /prisma-kysely@1.4.2:
+    resolution: {integrity: sha512-uIparYfieptbgvhKHGFwNCH/vmDEMj0zMIbd83unq6Jf0+R0NdvDdrojg2S05VCTR+r7ce/iDzkIPy6il9Lwkg==}
     hasBin: true
     dependencies:
       '@prisma/generator-helper': 4.13.0
