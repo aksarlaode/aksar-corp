@@ -1,4 +1,6 @@
 import "./src/env.mjs";
+import "@aksar/api/src/env.mjs";
+
 import withMDX from "@next/mdx";
 
 /** @type {import("next").NextConfig} */
@@ -8,9 +10,8 @@ const config = {
   transpilePackages: ["@aksar/api", "@aksar/db"],
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
-    appDir: true,
     mdxRs: true,
-    typedRoutes: true,
+    serverActions: true,
   },
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },

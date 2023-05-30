@@ -16,7 +16,7 @@ const config = {
     "prettier-plugin-tailwindcss",
   ],
   tailwindConfig: "./packages/config/tailwind",
-  importOrderTypeScriptVersion: "4.9.5",
+  importOrderTypeScriptVersion: "4.0.0",
   importOrder: [
     "^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
     "^(next/(.*)$)|^(next$)",

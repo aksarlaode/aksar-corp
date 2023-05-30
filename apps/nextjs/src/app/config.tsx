@@ -6,6 +6,8 @@ import { Icons } from "@aksar/ui/icons";
 
 export const siteConfig = {
   name: "Aksar La'ode",
+  description:
+    "The perfect starter template for your next TypeScript library. Batteries included powered by PNPM Workspaces, Turborepo, tsup & Changesets.",
   github: "https://github.com/aksarlaode/aksar-corp",
   twitter: "https://twitter.com/ode_aksar",
 };

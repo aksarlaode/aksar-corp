@@ -17,12 +17,12 @@ import {
 import { Input } from "@aksar/ui/input";
 import { toast } from "@aksar/ui/use-toast";
 
-import { getBaseUrl } from "~/utils/api";
+import { getBaseUrl } from "~/trpc/client";
 
 type Props = {
   editor: Editor | null;
   setContent: (content: string) => void;
-  title: string;
+  title?: string;
 };
 
 export const MenuBar = ({ editor, setContent, title }: Props) => {
