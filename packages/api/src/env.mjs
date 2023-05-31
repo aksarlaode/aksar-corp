@@ -8,7 +8,7 @@ export const env = createEnv({
       process.env.VERCEL ? z.string().min(1) : z.string().url(),
     ),
 
-    STRIPE_API_KEY: z.string(),
+    STRIPE_API_KEY: z.string().optional(),
     /*STRIPE_STD_PRODUCT_ID: z.string(),
     STRIPE_STD_MONTHLY_PRICE_ID: z.string(),
     STRIPE_PRO_PRODUCT_ID: z.string(),
