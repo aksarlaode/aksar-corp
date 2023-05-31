@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import type { Editor } from "@tiptap/react";
+
 import { MoreHorizontalIcon, Redo2, SendIcon, Undo2 } from "lucide-react";
 
 import { Button } from "@aksar/ui/button";
@@ -17,7 +18,7 @@ import {
 import { Input } from "@aksar/ui/input";
 import { toast } from "@aksar/ui/use-toast";
 
-import { getBaseUrl } from "~/trpc/client";
+import { getBaseUrl } from "~/trpc/shared";
 
 type Props = {
   editor: Editor | null;

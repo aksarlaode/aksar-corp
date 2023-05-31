@@ -1,9 +1,9 @@
+import type { AppRouter } from "@aksar/api";
 import type { HttpBatchLinkOptions, HTTPHeaders, TRPCLink } from "@trpc/client";
+
 import { httpBatchLink } from "@trpc/client";
 
-import type { AppRouter } from "@aksar/api";
-
-const getBaseUrl = () => {
+export const getBaseUrl = () => {
   if (typeof window !== "undefined") return "";
   const vc = process.env.VERCEL_URL;
   if (vc) return `https://${vc}`;

@@ -2,8 +2,9 @@
 
 import { useEffect } from "react";
 
-import { useClerk } from "@clerk/nextjs";
 import type { HandleOAuthCallbackParams } from "@clerk/types";
+
+import { useClerk } from "@clerk/nextjs";
 
 import { Icons } from "@aksar/ui/icons";
 

@@ -1,8 +1,8 @@
+import type { AppRouter } from "@aksar/api";
+
 import { loggerLink } from "@trpc/client";
 import { experimental_createTRPCNextAppDirClient } from "@trpc/next/app-dir/client";
 import superjson from "superjson";
-
-import type { AppRouter } from "@aksar/api";
 
 import { endingLink } from "./shared";
 

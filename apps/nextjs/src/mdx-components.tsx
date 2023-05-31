@@ -1,8 +1,8 @@
 import * as React from "react";
-import type { Route } from "next";
 import Link from "next/link";
 
 import type { MDXComponents } from "mdx/types";
+import type { Route } from "next";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {

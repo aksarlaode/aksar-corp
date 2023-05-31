@@ -1,4 +1,3 @@
-;
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1)
@@ -8,24 +7,19 @@
  * The pieces you will need to use are documented accordingly near the end
  */
 
+import type {
+  SignedInAuthObject,
+  SignedOutAuthObject,
+} from "@clerk/nextjs/api";
+import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import type { NextRequest } from "next/server";
 
-
-
-import type { SignedInAuthObject, SignedOutAuthObject } from "@clerk/nextjs/api";
 import { getAuth } from "@clerk/nextjs/server";
 import { initTRPC, TRPCError } from "@trpc/server";
-import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-
-
 import { db } from "@aksar/db";
-
-
-
-
 
 /**
  * 1. CONTEXT

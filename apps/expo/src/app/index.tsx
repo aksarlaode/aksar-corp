@@ -3,10 +3,11 @@ import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useRouter } from "expo-router";
 
+import type { RouterOutputs } from "~/utils/api";
+
 import { FlashList } from "@shopify/flash-list";
 
 import { api } from "~/utils/api";
-import type { RouterOutputs } from "~/utils/api";
 
 const PostCard: React.FC<{
   post: RouterOutputs["post"]["all"][number];

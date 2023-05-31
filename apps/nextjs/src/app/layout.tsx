@@ -1,7 +1,9 @@
 import "~/styles/globals.css";
-import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
+
+import type { Metadata } from "next";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";

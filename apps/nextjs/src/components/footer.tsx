@@ -10,7 +10,7 @@ const ThemeToggle = dynamic(() => import("~/components/theme-toggle"), {
   ssr: false,
 });
 
-export function SiteFooter(props: { className: string }) {
+export function SiteFooter(props: { className?: string }) {
   return (
     <footer className={cn("container border-t py-6", props.className)}>
       <div className="flex flex-col items-center justify-between gap-4">

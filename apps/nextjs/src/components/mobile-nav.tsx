@@ -1,13 +1,13 @@
 import * as React from "react";
 import Link from "next/link";
 
+import type { NavItem } from "./main-nav";
+
 import { cn } from "@aksar/ui";
 import { Icons } from "@aksar/ui/icons";
 
 import { siteConfig } from "~/app/config";
 import { useLockBody } from "~/hooks/use-lock-body";
-
-import type { NavItem } from "./main-nav";
 
 interface MobileNavProps {
   items: NavItem[];

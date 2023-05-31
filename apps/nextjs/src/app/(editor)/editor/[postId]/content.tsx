@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 
+import type { Post } from "@aksar/db";
+import type { Editor } from "@tiptap/react";
+
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor } from "@tiptap/react";
-import type { Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
 import { Button } from "@aksar/ui/button";
 import { Input } from "@aksar/ui/input";
-
-import { api } from "~/trpc/client";
 
 import { BubbleMenuBar, FloatingMenuBar } from "./menu";
 import { MenuBar } from "./menu-bar";
@@ -22,11 +22,9 @@ export type ChatItem = {
   isError?: boolean;
 };
 
-const Content = ({ params }: { params: { postId: string } }) => {
-  const [content, setContent] = useState<string>("");
-
-  const post = api.post.byId.useQuery({ id: params.postId });
-  const [title, setTitle] = useState<string | undefined>(post.data?.title);
+const Content = ({ post }: { post: Post }) => {
+  const [content, setContent] = useState<string>(post.content);
+  const [title, setTitle] = useState<string>(post.title);
 
   const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -63,8 +61,7 @@ const Content = ({ params }: { params: { postId: string } }) => {
   }
 
   const handleSubmit = () => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    editor.commands.setContent(post.data!.content);
+    editor.commands.setContent(content);
   };
 
   return (

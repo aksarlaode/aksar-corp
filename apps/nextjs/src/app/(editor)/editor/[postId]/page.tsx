@@ -5,6 +5,8 @@ import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
 import { Icons } from "@aksar/ui/icons";
 
+import { api } from "~/trpc/server";
+
 import Content from "./content";
 
 export type ChatItem = {
@@ -13,7 +15,16 @@ export type ChatItem = {
   isError?: boolean;
 };
 
-const EditorPage = () => {
+type Props = { params: { postId: string } };
+
+const EditorPage = async ({ params }: Props) => {
+  const post = await api.post.byId.query({ id: params.postId });
+
+  if (!post) {
+    console.log(`Post with id ${params.postId} not found`);
+    return null;
+  }
+
   return (
     <div className="container relative h-screen w-screen flex-col pt-20">
       <Link
@@ -30,7 +41,7 @@ const EditorPage = () => {
       </Link>
 
       <div className="mx-auto flex w-full flex-col space-y-6">
-        <Content />
+        <Content post={post} />
       </div>
     </div>
   );

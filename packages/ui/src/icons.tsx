@@ -1,3 +1,5 @@
+import type { Icon as LucideIcon, LucideProps } from "lucide-react";
+
 import {
   AlertTriangle,
   ArrowRight,
@@ -25,7 +27,6 @@ import {
   User,
   X,
 } from "lucide-react";
-import type { Icon as LucideIcon, LucideProps } from "lucide-react";
 
 export type Icon = LucideIcon;
 

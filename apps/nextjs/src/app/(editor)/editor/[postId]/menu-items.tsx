@@ -1,4 +1,5 @@
 import type { Editor } from "@tiptap/react";
+
 import {
   Bold,
   Code,

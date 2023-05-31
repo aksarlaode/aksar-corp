@@ -1,5 +1,6 @@
-import type { Metadata, Route } from "next";
 import Link from "next/link";
+
+import type { Metadata, Route } from "next";
 
 import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
