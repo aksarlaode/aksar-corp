@@ -73,9 +73,7 @@ export const metadata: Metadata = {
   manifest: "`${siteConfig.url}/site.webmanifest`",
 };
 
-export default function RootLayout(props: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>

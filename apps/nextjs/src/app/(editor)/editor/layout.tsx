@@ -1,7 +1,3 @@
-export default function EditorLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <main className="min-h-screen">{children}</main>;
+export default function EditorLayout(props: { children: React.ReactNode }) {
+  return <main className="min-h-screen">{props.children}</main>;
 }

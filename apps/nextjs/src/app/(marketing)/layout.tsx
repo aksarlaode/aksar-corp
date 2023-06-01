@@ -6,11 +6,7 @@ import { UserNav } from "~/components/user-nav";
 
 import { navItems } from "../config";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">
@@ -24,7 +20,7 @@ export default function RootLayout({
           </nav>
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">{props.children}</main>
       <SiteFooter />
     </div>
   );
