@@ -8,4 +8,4 @@ export const lambdaRouter = createTRPCRouter({
   stripe: stripeRouter,
 });
 
-//export { stripe } from "./router/stripe/shared";
+export { stripe } from "./router/stripe/shared";
