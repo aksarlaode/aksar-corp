@@ -23,7 +23,6 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
           {/* <MainNav className="mx-6" /> */}
           <div className="ml-auto flex items-center space-x-4">
             <Search />
-            {/* @ts-expect-error - ... */}
             <UserNav />
           </div>
         </div>

@@ -14,7 +14,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <MainNav items={navItems} />
           <nav>
             <Suspense>
-              {/* @ts-expect-error - ... */}
               <UserNav />
             </Suspense>
           </nav>
