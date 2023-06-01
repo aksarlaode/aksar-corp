@@ -7,6 +7,7 @@ export default authMiddleware({
     "/sso-callback(.*)",
     "/terms(.*)",
     "/privacy(.*)",
+    "/pricing(.*)",
     "/editor(.*)",
     "/api(.*)",
   ],

@@ -23,10 +23,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 import { Search } from "~/components/search";
 import { UserNav } from "~/components/user-nav";
 
-import { CalendarDateRangePicker } from "./components/date-range-picker";
-import { Overview } from "./components/overview";
-import { RecentSales } from "./components/recent-sales";
-import { TeamSwitcher } from "./components/team-switcher";
+import { CalendarDateRangePicker } from "../_components/date-range-picker";
+import { Overview } from "../_components/overview";
+import { RecentSales } from "../_components/recent-sales";
+import { TeamSwitcher } from "../_components/team-switcher";
 
 // export const runtime = "edge";
 export const dynamic = "force-dynamic";

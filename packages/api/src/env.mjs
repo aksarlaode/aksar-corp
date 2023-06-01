@@ -8,20 +8,20 @@ export const env = createEnv({
       process.env.VERCEL ? z.string().min(1) : z.string().url(),
     ),
 
-    STRIPE_API_KEY: z.string().optional(),
-    /*STRIPE_STD_PRODUCT_ID: z.string(),
+    STRIPE_API_KEY: z.string(),
+    STRIPE_STD_PRODUCT_ID: z.string(),
     STRIPE_STD_MONTHLY_PRICE_ID: z.string(),
     STRIPE_PRO_PRODUCT_ID: z.string(),
-    STRIPE_PRO_MONTHLY_PRICE_ID: z.string(),*/
+    STRIPE_PRO_MONTHLY_PRICE_ID: z.string(),
   },
   runtimeEnv: {
     NEXTJS_URL: process.env.NEXTJS_URL,
 
     STRIPE_API_KEY: process.env.STRIPE_API_KEY,
-    //STRIPE_STD_PRODUCT_ID: process.env.STRIPE_STD_PRODUCT_ID,
-    //STRIPE_STD_MONTHLY_PRICE_ID: process.env.STRIPE_STD_MONTHLY_PRICE_ID,
-    //STRIPE_PRO_PRODUCT_ID: process.env.STRIPE_PRO_PRODUCT_ID,
-    //STRIPE_PRO_MONTHLY_PRICE_ID: process.env.STRIPE_PRO_MONTHLY_PRICE_ID,
+    STRIPE_STD_PRODUCT_ID: process.env.STRIPE_STD_PRODUCT_ID,
+    STRIPE_STD_MONTHLY_PRICE_ID: process.env.STRIPE_STD_MONTHLY_PRICE_ID,
+    STRIPE_PRO_PRODUCT_ID: process.env.STRIPE_PRO_PRODUCT_ID,
+    STRIPE_PRO_MONTHLY_PRICE_ID: process.env.STRIPE_PRO_MONTHLY_PRICE_ID,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 });

@@ -1,7 +1,7 @@
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
-  /*mySubscription: protectedProcedure.query(async (opts) => {
+  mySubscription: protectedProcedure.query(async (opts) => {
     const customer = await opts.ctx.db
       .selectFrom("Customer")
       .select(["plan", "endsAt"])
@@ -11,7 +11,7 @@ export const authRouter = createTRPCRouter({
     if (!customer) return null;
 
     return { plan: customer.plan ?? null, endsAt: customer.endsAt ?? null };
-  }),*/
+  }),
   getSession: publicProcedure.query(({ ctx }) => {
     return ctx.auth.session;
   }),

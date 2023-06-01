@@ -64,6 +64,7 @@ export const metadata: Metadata = {
     images: "[`${siteConfig.url}/og.jpg`]",
     creator: "@ode_aksar",
   },
+  metadataBase: new URL("https://bahutara.eu.org"),
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
