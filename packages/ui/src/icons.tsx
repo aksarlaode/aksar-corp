@@ -1,32 +1,12 @@
 import type { Icon as LucideIcon, LucideProps } from "lucide-react";
 
-import {
-  AlertTriangle,
-  ArrowRight,
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  ClipboardCheck,
-  Command,
-  Copy,
-  CreditCard,
-  File,
-  FileText,
-  HelpCircle,
-  Image,
-  Laptop,
-  Loader2,
-  Moon,
-  MoreVertical,
-  Pizza,
-  Plus,
-  Settings,
-  SunMedium,
-  Trash,
-  Twitter,
-  User,
-  X,
-} from "lucide-react";
+
+
+import { AlertTriangle, ArrowRight, Building, Check, ChevronLeft, ChevronRight, ClipboardCheck, Command, Copy, CreditCard, File, FileText, HelpCircle, Image, Laptop, Loader2, Moon, MoreVertical, Pizza, Plus, Settings, SunMedium, Trash, Twitter, User, X } from "lucide-react";
+
+
+
+
 
 export type Icon = LucideIcon;
 
@@ -44,6 +24,7 @@ export const Icons = {
   billing: CreditCard,
   ellipsis: MoreVertical,
   add: Plus,
+  organization: Building,
   warning: AlertTriangle,
   user: User,
   arrowRight: ArrowRight,
