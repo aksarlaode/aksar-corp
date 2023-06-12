@@ -29,6 +29,17 @@ export default function BillingPage() {
   );
 }
 
+const isValidSubscription = (subscription: unknown) => {
+  return (
+    typeof subscription === "object" &&
+    subscription !== null &&
+    "plan" in subscription &&
+    "endsAt" in subscription &&
+    !!subscription.plan &&
+    !!subscription.endsAt
+  );
+};
+
 async function SubscriptionCard() {
   const subscription = await api.auth.mySubscription.query();
 
@@ -38,11 +49,11 @@ async function SubscriptionCard() {
         <CardTitle>Subscription</CardTitle>
       </CardHeader>
       <CardContent>
-        {subscription ? (
+        {isValidSubscription(subscription) ? (
           <p>
-            You are currently on the <strong>{subscription.plan}</strong> plan.
+            You are currently on the <strong>{subscription?.plan}</strong> plan.
             Your subscription will renew on{" "}
-            <strong>{subscription.endsAt?.toLocaleDateString()}</strong>.
+            <strong>{subscription?.endsAt?.toLocaleDateString()}</strong>.
           </p>
         ) : (
           <p>You are not subscribed to any plan.</p>

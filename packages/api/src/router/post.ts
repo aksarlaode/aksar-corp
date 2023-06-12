@@ -26,8 +26,9 @@ export const postRouter = createTRPCRouter({
   create: protectedProcedure
     .input(
       z.object({
-        title: z.string().min(1),
-        content: z.string().min(1),
+        title: z.string().min(3).max(128),
+        // TODO: Type this properly from editorjs block types?
+        content: z.any().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -36,10 +37,39 @@ export const postRouter = createTRPCRouter({
         .insertInto("Post")
         .values({
           id,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           content: input.content,
           title: input.title,
           userId: ctx.auth.userId,
         })
+        .execute();
+
+      return ctx.db
+        .selectFrom("Post")
+        .selectAll()
+        .where("Post.id", "=", id)
+        .execute();
+    }),
+
+  update: protectedProcedure
+    .input(
+      z.object({
+        title: z.string().min(3).max(128).optional(),
+        // TODO: Type this properly from editorjs block types?
+        content: z.string().optional(),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const id = genId();
+      await ctx.db
+        .updateTable("Post")
+        .set({
+          id,
+          title: input.title,
+          content: input.content,
+          userId: ctx.auth.userId,
+        })
+        .where("Post.id", "=", id)
         .execute();
 
       return ctx.db

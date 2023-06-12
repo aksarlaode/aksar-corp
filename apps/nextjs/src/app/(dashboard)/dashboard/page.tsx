@@ -16,6 +16,8 @@ import {
 } from "@aksar/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 
+import { api } from "~/trpc/server";
+
 import { CalendarDateRangePicker } from "../_components/date-range-picker";
 import { Overview } from "../_components/overview";
 import { RecentSales } from "../_components/recent-sales";
@@ -24,13 +26,17 @@ import { RecentSales } from "../_components/recent-sales";
 export const dynamic = "force-dynamic";
 
 export default function DashboardPage() {
+  const post = api.post.create.mutate({ title: "Untitled Post" });
+  async function onClick() {
+    await post;
+  }
   return (
     <>
       <div className="flex flex-col justify-between space-y-2 md:flex-row md:items-center">
         <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
         <div className="flex items-center gap-2">
           <CalendarDateRangePicker align="start" />
-          <Button size="sm">
+          <Button size="sm" onClick={onClick}>
             <Download className="mr-2 h-4 w-4" />
             Download
           </Button>
