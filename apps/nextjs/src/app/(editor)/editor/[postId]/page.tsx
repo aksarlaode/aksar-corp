@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import type { HTMLContent } from "@tiptap/react";
+
 import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
 import { Icons } from "@aksar/ui/icons";
@@ -11,7 +13,7 @@ import Content from "./content";
 
 export type ChatItem = {
   author: "User" | "AI";
-  content: string;
+  content: HTMLContent;
   isError?: boolean;
 };
 

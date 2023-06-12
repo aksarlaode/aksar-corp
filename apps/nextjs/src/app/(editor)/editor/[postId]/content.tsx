@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 import type { Post } from "@aksar/db";
-import type { Editor } from "@tiptap/react";
+import type { Editor, HTMLContent } from "@tiptap/react";
 
 import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
@@ -18,12 +18,12 @@ import { MenuBar } from "./menu-bar";
 
 export type ChatItem = {
   author: "User" | "AI";
-  content: string;
+  content: HTMLContent;
   isError?: boolean;
 };
 
-const Content = ({ post }: { post: Post }) => {
-  const [content, setContent] = useState<string>(post.content);
+const Content = ({ post }: any) => {
+  const [content, setContent] = useState<string | null>(post.content);
   const [title, setTitle] = useState<string>(post.title);
 
   const handleOnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
