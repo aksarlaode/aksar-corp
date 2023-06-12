@@ -16,17 +16,11 @@ import {
 } from "@aksar/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@aksar/ui/tabs";
 
-<<<<<<< Updated upstream
-import { CalendarDateRangePicker } from "~/app/(dashboard)/_components/date-range-picker";
-import { Overview } from "~/app/(dashboard)/_components/overview";
-import { RecentSales } from "~/app/(dashboard)/_components/recent-sales";
-=======
 import { api } from "~/trpc/server";
 
 import { CalendarDateRangePicker } from "../_components/date-range-picker";
 import { Overview } from "../_components/overview";
 import { RecentSales } from "../_components/recent-sales";
->>>>>>> Stashed changes
 
 // export const runtime = "edge";
 export const dynamic = "force-dynamic";

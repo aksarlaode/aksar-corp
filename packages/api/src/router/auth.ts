@@ -1,11 +1,11 @@
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
-  mySubscription: protectedProcedure.query(async (opts) => {
-    const customer = await opts.ctx.db
+  mySubscription: protectedProcedure.query(async ({ ctx }) => {
+    const customer = await ctx.db
       .selectFrom("Customer")
       .select(["plan", "endsAt"])
-      .where("clerkUserId", "=", opts.ctx.auth.userId)
+      .where("clerkUserId", "=", ctx.auth.userId)
       .executeTakeFirst();
 
     if (!customer) return null;

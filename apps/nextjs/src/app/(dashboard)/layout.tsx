@@ -6,7 +6,7 @@ import { SiteFooter } from "~/components/footer";
 import { Search } from "~/components/search";
 import { UserNav } from "~/components/user-nav";
 
-import { TeamSwitcher } from "./_components/team-switcher";
+import { WorkspaceSwitcher } from "./_components/workspace-switcher";
 
 export default function DashboardLayout(props: { children: React.ReactNode }) {
   return (
@@ -19,7 +19,7 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
           <span className="mx-2 text-lg font-bold text-muted-foreground">
             /
           </span>
-          <TeamSwitcher />
+          <WorkspaceSwitcher />
           {/* <MainNav className="mx-6" /> */}
           <div className="ml-auto flex items-center space-x-4">
             <Search />

@@ -17,6 +17,7 @@ export type Customer = {
   stripeId: string;
   subscriptionId: string | null;
   clerkUserId: string;
+  clerkOrganizationId: string | null;
   name: string | null;
   plan: SubscriptionPlan | null;
   paidUntil: Timestamp | null;
