@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import { cn } from "@aksar/ui";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 import { siteConfig } from "~/app/config";
 import { MobileNav } from "~/components/mobile-nav";
@@ -29,7 +29,7 @@ export function MainNav({ items, children, className }: MainNavProps) {
   return (
     <div className={cn("flex gap-6 md:gap-10", className)}>
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <Icons.logo />
+        <Icons.Logo />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
@@ -59,7 +59,7 @@ export function MainNav({ items, children, className }: MainNavProps) {
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
+        {showMobileMenu ? <Icons.Close /> : <Icons.Logo />}
         <span className="font-bold">Menu</span>
       </button>
       {showMobileMenu && items && (

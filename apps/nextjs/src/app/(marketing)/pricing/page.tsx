@@ -1,5 +1,8 @@
 import type { RouterOutputs } from "~/trpc/server";
 
+import { CheckCircle2 } from "lucide-react";
+import { Balancer } from "react-wrap-balancer";
+
 import {
   Card,
   CardDescription,
@@ -7,8 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@aksar/ui/card";
-import { CheckCircle2 } from "lucide-react";
-import { Balancer } from "react-wrap-balancer";
 
 import { api } from "~/trpc/server";
 

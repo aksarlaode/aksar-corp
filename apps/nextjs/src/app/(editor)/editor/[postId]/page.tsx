@@ -5,7 +5,7 @@ import type { HTMLContent } from "@tiptap/react";
 
 import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 import { api } from "~/trpc/server";
 

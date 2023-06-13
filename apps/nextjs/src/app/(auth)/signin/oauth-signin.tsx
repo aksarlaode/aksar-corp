@@ -7,7 +7,7 @@ import type { OAuthStrategy } from "@clerk/types";
 import { useSignIn } from "@clerk/nextjs";
 
 import { Button } from "@aksar/ui/button";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 import { useToast } from "@aksar/ui/use-toast";
 
 export function OAuthSignIn() {
@@ -24,9 +24,7 @@ export function OAuthSignIn() {
         redirectUrl: "/sso-callback",
         redirectUrlComplete: "/dashboard",
       });
-      console.log("oauthSignIn done?");
     } catch (cause) {
-      console.error(cause);
       setIsLoading(null);
       toast({
         variant: "destructive",
@@ -34,8 +32,6 @@ export function OAuthSignIn() {
         description: "Something went wrong, please try again.",
       });
     }
-    console.log("oauthSignIn done2?");
-    console.log(JSON.stringify(signIn, null, 4));
   };
 
   return (
@@ -46,9 +42,9 @@ export function OAuthSignIn() {
         onClick={() => oauthSignIn("oauth_github")}
       >
         {isLoading === "oauth_github" ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          <Icons.Spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
+          <Icons.GitHub className="mr-2 h-4 w-4" />
         )}
         Github
       </Button>
@@ -58,9 +54,9 @@ export function OAuthSignIn() {
         onClick={() => oauthSignIn("oauth_google")}
       >
         {isLoading === "oauth_google" ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          <Icons.Spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.google className="mr-2 h-4 w-4" />
+          <Icons.Google className="mr-2 h-4 w-4" />
         )}
         Google
       </Button>

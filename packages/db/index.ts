@@ -2,16 +2,26 @@
 
 import { Kysely } from "kysely";
 import { PlanetScaleDialect } from "kysely-planetscale";
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
 
 import type { ColumnType } from "kysely";
-import type { SubscriptionPlan } from "./enums";
+import type { ProjectTier, SubscriptionPlan } from "./enums";
 
 export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
+export type ApiKey = {
+  id: string;
+  createdAt: Generated<Timestamp>;
+  expiresAt: Timestamp | null;
+  lastUsed: Timestamp | null;
+  projectId: string;
+  clerkUserId: string;
+  name: Generated<string>;
+  key: string;
+};
 export type Customer = {
   id: string;
   stripeId: string;
@@ -30,9 +40,20 @@ export type Post = {
   content: string;
   published: Generated<number>;
 };
+export type Project = {
+  id: string;
+  createdAt: Generated<Timestamp>;
+  organizationId: string | null;
+  userId: string | null;
+  name: string | null;
+  tier: Generated<ProjectTier>;
+  url: string | null;
+};
 export type DB = {
+  ApiKey: ApiKey;
   Customer: Customer;
   Post: Post;
+  Project: Project;
 };
 
 
@@ -42,4 +63,6 @@ export const db = new Kysely<DB>({
   }),
 });
 
-export const genId = nanoid;
+// Use custom alphabet without special chars for less chaotic, copy-able URLs
+// Will not collide for a long long time: https://zelark.github.io/nano-id-cc/
+export const genId = customAlphabet("0123456789abcdefghijklmnopqrstuvwxyz", 16);

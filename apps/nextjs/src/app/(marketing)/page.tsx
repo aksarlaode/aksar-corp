@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@aksar/ui/card";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 import { marketingFeatures, siteConfig } from "~/app/config";
 
@@ -48,7 +48,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icons.gitHub className="mr-1 h-4 w-4" />
+              <Icons.GitHub className="mr-1 h-4 w-4" />
               <span>Star on GitHub</span>
             </a>
           </div>

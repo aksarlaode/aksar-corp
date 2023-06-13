@@ -24,6 +24,9 @@ const client = [
   "./src/use-toast.tsx",
   "./src/menubar.tsx",
   "./src/separator.tsx",
+  "./src/form.tsx",
+  "./src/data-table.tsx",
+  "./src/checkbox.tsx",
 ];
 
 const server = [

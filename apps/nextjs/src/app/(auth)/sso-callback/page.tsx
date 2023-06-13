@@ -6,7 +6,7 @@ import type { HandleOAuthCallbackParams } from "@clerk/types";
 
 import { useClerk } from "@clerk/nextjs";
 
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 export const runtime = "edge";
 
@@ -21,7 +21,7 @@ export default function SSOCallback(props: {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center">
-      <Icons.spinner className="mr-2 h-16 w-16 animate-spin" />
+      <Icons.Spinner className="mr-2 h-16 w-16 animate-spin" />
     </div>
   );
 }

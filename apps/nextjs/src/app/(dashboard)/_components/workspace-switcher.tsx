@@ -2,10 +2,14 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import type { PurchaseOrg } from "@aksar/api/validators";
 
 import { useOrganization, useOrganizationList, useUser } from "@clerk/nextjs";
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react";
 
+import { purchaseOrgSchema } from "@aksar/api/validators";
 import { cn } from "@aksar/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@aksar/ui/avatar";
 import { Button } from "@aksar/ui/button";
@@ -26,8 +30,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@aksar/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@aksar/ui/form";
 import { Input } from "@aksar/ui/input";
-import { Label } from "@aksar/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@aksar/ui/popover";
 import {
   Select,
@@ -38,9 +49,12 @@ import {
 } from "@aksar/ui/select";
 import { useToast } from "@aksar/ui/use-toast";
 
+import { useZodForm } from "~/lib/zod-form";
 import { api } from "~/trpc/client";
 
 export function WorkspaceSwitcher() {
+  const router = useRouter();
+
   const [switcherOpen, setSwitcherOpen] = React.useState(false);
   const [newOrgDialogOpen, setNewOrgDialogOpen] = React.useState(false);
 
@@ -106,10 +120,12 @@ export function WorkspaceSwitcher() {
               <CommandGroup heading="Personal account">
                 <CommandItem
                   onSelect={async () => {
-                    normalizedObject.id = user?.id ?? "";
+                    if (!user?.id) return;
+                    normalizedObject.id = user.id ?? "";
 
                     await orgs.setActive?.({ organization: null });
                     setSwitcherOpen(false);
+                    router.push(`/${user.id}`);
                   }}
                   className="text-sm"
                 >
@@ -136,9 +152,10 @@ export function WorkspaceSwitcher() {
                 {orgs.organizationList?.map(({ organization: org }) => (
                   <CommandItem
                     key={org.name}
-                    onSelect={() => {
-                      void orgs.setActive({ organization: org });
+                    onSelect={async () => {
+                      await orgs.setActive({ organization: org });
                       setSwitcherOpen(false);
+                      router.push(`/${org.id}`);
                     }}
                     className="text-sm"
                   >
@@ -194,17 +211,13 @@ export function WorkspaceSwitcher() {
 function NewOrganizationDialog(props: { closeDialog: () => void }) {
   const plans = React.use(api.stripe.plans.query());
 
-  const [orgName, setOrgName] = React.useState("");
-  const [plan, setPlan] = React.useState<(typeof plans)[number] | undefined>();
+  const form = useZodForm({ schema: purchaseOrgSchema });
 
   const toaster = useToast();
 
-  async function handleCreateOrg() {
+  async function handleCreateOrg(data: PurchaseOrg) {
     const response = await api.stripe.purchaseOrg
-      .mutate({
-        planId: plan?.id ?? "",
-        orgName,
-      })
+      .mutate(data)
       .catch(() => ({ success: false as const }));
 
     if (response.success) window.location.href = response.url;
@@ -219,64 +232,76 @@ function NewOrganizationDialog(props: { closeDialog: () => void }) {
 
   return (
     <DialogContent>
-      <DialogHeader>
-        <DialogTitle>Create organization</DialogTitle>
-        <DialogDescription>
-          Add a new organization to manage products and customers.
-        </DialogDescription>
-      </DialogHeader>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(handleCreateOrg)}
+          className="space-y-4"
+        >
+          <DialogHeader>
+            <DialogTitle>Create organization</DialogTitle>
+            <DialogDescription>
+              Add a new organization to manage products and customers.
+            </DialogDescription>
+          </DialogHeader>
 
-      <div>
-        <div className="space-y-4 py-2 pb-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Organization name</Label>
-            <Input
-              id="name"
-              placeholder="Acme Inc."
-              value={orgName}
-              onChange={(e) => setOrgName(e.currentTarget.value)}
-            />
-          </div>
-          <div className="space-y-2">
-            <div className="flex justify-between">
-              <Label htmlFor="plan">Subscription plan</Label>
-              <Link
-                href="/pricing"
-                className="text-xs text-muted-foreground hover:underline"
-              >
-                What&apos;s included in each plan?
-              </Link>
-            </div>
-            <Select
-              onValueChange={(selected) =>
-                setPlan(plans.find((p) => p.id === selected))
-              }
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select a plan" />
-              </SelectTrigger>
-              <SelectContent>
-                {plans.map((plan) => (
-                  <SelectItem key={plan.id} value={plan.id}>
-                    <span className="font-medium">{plan.name}</span> -{" "}
-                    <span className="text-muted-foreground">
-                      ${plan.amount / 100} per month
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </div>
-      <DialogFooter>
-        <Button variant="outline" onClick={() => props.closeDialog()}>
-          Cancel
-        </Button>
-        <Button disabled={!plan || !orgName} onClick={handleCreateOrg}>
-          Continue
-        </Button>
-      </DialogFooter>
+          <FormField
+            control={form.control}
+            name="orgName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Organization name *</FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="aksar Inc." />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="planId"
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex justify-between">
+                  <FormLabel>Subscription plan *</FormLabel>
+                  <Link
+                    href="/pricing"
+                    className="text-xs text-muted-foreground hover:underline"
+                  >
+                    What&apos;s included in each plan?
+                  </Link>
+                </div>
+                <Select {...field}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a plan" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {plans.map((plan) => (
+                      <SelectItem key={plan.id} value={plan.id}>
+                        <span className="font-medium">{plan.name}</span> -{" "}
+                        <span className="text-muted-foreground">
+                          ${plan.amount / 100} per month
+                        </span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => props.closeDialog()}>
+              Cancel
+            </Button>
+            <Button type="submit">Continue</Button>
+          </DialogFooter>
+        </form>
+      </Form>
     </DialogContent>
   );
 }

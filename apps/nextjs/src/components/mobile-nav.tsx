@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { NavItem } from "./main-nav";
 
 import { cn } from "@aksar/ui";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 import { siteConfig } from "~/app/config";
 import { useLockBody } from "~/hooks/use-lock-body";
@@ -27,7 +27,7 @@ export function MobileNav(props: MobileNavProps) {
     >
       <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
         <Link href="/" className="flex items-center space-x-2">
-          <Icons.logo />
+          <Icons.Logo />
           <span className="font-bold">{siteConfig.name}</span>
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">

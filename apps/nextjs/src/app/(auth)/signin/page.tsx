@@ -5,7 +5,7 @@ import type { Metadata, Route } from "next";
 import { cn } from "@aksar/ui";
 import { buttonVariants } from "@aksar/ui/button";
 import { Command } from "@aksar/ui/command";
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 import { EmailSignIn } from "./email-signin";
 import { OAuthSignIn } from "./oauth-signin";

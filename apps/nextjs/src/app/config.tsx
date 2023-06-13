@@ -2,7 +2,7 @@ import type { Route } from "next";
 
 import { Component, CreditCard, Globe } from "lucide-react";
 
-import { Icons } from "@aksar/ui/icons";
+import * as Icons from "@aksar/ui/icons";
 
 export const siteConfig = {
   name: "Aksar La'ode",
@@ -52,7 +52,7 @@ export const marketingFeatures = [
     ),
   },
   {
-    icon: <Icons.clerkWide className="h-10" />,
+    icon: <Icons.ClerkWide className="h-10" />,
     title: "Authentication",
     body: (
       <>
@@ -70,7 +70,7 @@ export const marketingFeatures = [
     ),
   },
   {
-    icon: <Icons.mdx className="h-10" />,
+    icon: <Icons.Mdx className="h-10" />,
     title: "MDX",
     body: (
       <>
@@ -82,8 +82,8 @@ export const marketingFeatures = [
   {
     icon: (
       <div className="flex gap-3 self-start">
-        <Icons.nextjs className="h-10 w-10" />
-        <Icons.react className="h-10 w-10" />
+        <Icons.Nextjs className="h-10 w-10" />
+        <Icons.React className="h-10 w-10" />
       </div>
     ),
     title: "Next.js 13 & React 18",
@@ -98,9 +98,9 @@ export const marketingFeatures = [
   {
     icon: (
       <div className="flex gap-3 self-start">
-        <Icons.trpc className="h-10 w-10" />
-        <Icons.kysely className="h-10 w-10" />
-        <Icons.prisma className="h-10 w-10" />
+        <Icons.TRPC className="h-10 w-10" />
+        <Icons.Kysely className="h-10 w-10" />
+        <Icons.Prisma className="h-10 w-10" />
       </div>
     ),
     title: "Full-stack Typesafety",
