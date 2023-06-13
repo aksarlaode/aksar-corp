@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState } from "react";
 
-import type { Post } from "@aksar/db";
 import type { Editor, HTMLContent } from "@tiptap/react";
 
 import Highlight from "@tiptap/extension-highlight";
@@ -30,7 +32,6 @@ const Content = ({ post }: any) => {
     setTitle(e.target.value);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnChangeContent = ({ editor }: any) => {
     if (!(editor as Editor).isEmpty) "";
     setContent((editor as Editor).getHTML());

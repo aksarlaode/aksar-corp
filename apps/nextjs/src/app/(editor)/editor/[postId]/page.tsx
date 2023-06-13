@@ -37,7 +37,7 @@ const EditorPage = async ({ params }: Props) => {
         )}
       >
         <>
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+          <Icons.ChevronLeft className="mr-2 h-4 w-4" />
           Back
         </>
       </Link>
