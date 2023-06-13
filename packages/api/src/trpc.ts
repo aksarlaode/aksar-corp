@@ -138,6 +138,7 @@ const enforceApiKey = t.middleware(async ({ ctx, next }) => {
     .selectFrom("ApiKey")
     .select("id")
     .where("ApiKey.key", "=", ctx.apiKey)
+    .where("ApiKey.revokedAt", "is", null)
     .executeTakeFirst();
 
   if (!apiKey) {

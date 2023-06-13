@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-import { Card, CardDescription, CardHeader, CardTitle } from "@aksar/ui/card";
-
 import { ProjectTier } from "@aksar/db/enums";
 import { cn } from "@aksar/ui";
 import { Button } from "@aksar/ui/button";
+import { Card, CardDescription, CardHeader, CardTitle } from "@aksar/ui/card";
 import {
   Dialog,
   DialogContent,
