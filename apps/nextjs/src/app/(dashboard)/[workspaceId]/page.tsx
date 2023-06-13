@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Card, CardDescription, CardHeader, CardTitle } from "@acme/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@aksar/ui/card";
 
 import { ProjectTier } from "@aksar/db/enums";
 import { cn } from "@aksar/ui";
