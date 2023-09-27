@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -83,8 +87,8 @@ importers:
         specifier: ~3.20.0
         version: 3.20.0(react-native@0.71.8)(react@18.2.0)
       superjson:
-        specifier: 1.9.1
-        version: 1.9.1
+        specifier: 1.13.3
+        version: 1.13.3
     devDependencies:
       '@aksar/api':
         specifier: 0.1.0
@@ -234,8 +238,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       superjson:
-        specifier: 1.9.1
-        version: 1.9.1
+        specifier: 1.13.3
+        version: 1.13.3
       tailwindcss-animate:
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@3.3.2)
@@ -304,8 +308,8 @@ importers:
         specifier: ^12.8.0
         version: 12.8.0
       superjson:
-        specifier: 1.9.1
-        version: 1.9.1
+        specifier: 1.13.3
+        version: 1.13.3
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -1182,6 +1186,7 @@ packages:
   /@babel/plugin-proposal-numeric-separator@7.18.6(@babel/core@7.22.1):
     resolution: {integrity: sha512-ozlZFogPqoLm8WBr5Z8UckIoE4YQ5KESVcNudyXOR8uqIkliTEgJ3RoketfG6pmzLdeZF0H/wjE9/cCEitBl7Q==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -14154,8 +14159,8 @@ packages:
     resolution: {integrity: sha512-Mu7R0g4ig9TUuGSxJavny5Rv0egCEtpZRNMrZaYS1vxkiIxGiGUwoezU3LazIQ+KE04hTrTfNPgxU5gzi7F5Pw==}
     dev: false
 
-  /superjson@1.9.1:
-    resolution: {integrity: sha512-oT3HA2nPKlU1+5taFgz/HDy+GEaY+CWEbLzaRJVD4gZ7zMVVC4GDNFdgvAZt6/VuIk6D2R7RtPAiCHwmdzlMmg==}
+  /superjson@1.13.3:
+    resolution: {integrity: sha512-mJiVjfd2vokfDxsQPOwJ/PtanO87LhpYY88ubI5dUB1Ab58Txbyje3+jpm+/83R/fevaq/107NNhtYBLuoTrFg==}
     engines: {node: '>=10'}
     dependencies:
       copy-anything: 3.0.3
