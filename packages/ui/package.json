@@ -26,7 +26,7 @@
     "@radix-ui/react-toast": "^1.1.4",
     "class-variance-authority": "^0.6.0",
     "cmdk": "^0.2.0",
-    "lucide-react": "^0.236.0",
+    "lucide-react": "^0.436.0",
     "tailwind-merge": "^1.13.0",
     "zod": "^3.21.4"
   },
