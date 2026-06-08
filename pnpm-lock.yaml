@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -363,8 +367,8 @@ importers:
   packages/config/tailwind:
     devDependencies:
       '@tailwindcss/typography':
-        specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.3.2)
+        specifier: ^0.5.20
+        version: 0.5.20(tailwindcss@3.3.2)
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.24)
@@ -1182,6 +1186,7 @@ packages:
   /@babel/plugin-proposal-numeric-separator@7.18.6(@babel/core@7.22.1):
     resolution: {integrity: sha512-ozlZFogPqoLm8WBr5Z8UckIoE4YQ5KESVcNudyXOR8uqIkliTEgJ3RoketfG6pmzLdeZF0H/wjE9/cCEitBl7Q==}
     engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -5571,14 +5576,11 @@ packages:
       zod: 3.21.4
     dev: false
 
-  /@tailwindcss/typography@0.5.9(tailwindcss@3.3.2):
-    resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
+  /@tailwindcss/typography@0.5.20(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-hwbzQuNUfcPvbegQFatVPl/MY/tcM9KLl963hQ5laJKPh81TEZ1+dNG9PirGvcaDBkp+BCshExAyKVPW91dozw==}
     peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
+      tailwindcss: '>=3.0.0 || >=4.0.0 || insiders'
     dependencies:
-      lodash.castarray: 4.4.0
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.3.2
     dev: true
@@ -10475,10 +10477,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
-  /lodash.castarray@4.4.0:
-    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
-    dev: true
-
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
@@ -10989,6 +10987,7 @@ packages:
   /metro-react-native-babel-preset@0.76.3(@babel/core@7.22.1):
     resolution: {integrity: sha512-3DyE0aP/k8OdIcA0Dy0MQwx6EiXaTLq5YPy4Z38lwOFxD9ZRm2rwnaNXNczsYisJqeq1vcEJpfMnjS26Kqq97g==}
     engines: {node: '>=16'}
+    deprecated: Use @react-native/babel-preset instead
     peerDependencies:
       '@babel/core': '*'
     dependencies:
